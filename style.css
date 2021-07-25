@@ -7,11 +7,11 @@
 }
 
 :root {
-	background-color: #333;
 	font-size: 62.5%;
 }
 
 body {
+	background-color: #333;
 	color: ghostwhite;
 	font-family: "Poiret One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	padding: 10rem 5rem;
