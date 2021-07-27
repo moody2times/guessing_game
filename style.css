@@ -14,20 +14,10 @@ body {
 	background-color: #333;
 	color: ghostwhite;
 	font-family: "Poiret One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	padding: 10rem 5rem;
-}
-
-h1,
-h2 {
-	text-align: center;
-	text-transform: uppercase;
+	padding: 5rem 15rem;
 }
 
 h1 {
 	font-family: "Press Start 2P";
 	font-size: 5rem;
-}
-
-h2 {
-	font-size: 3rem;
 }
