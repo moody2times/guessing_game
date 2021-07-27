@@ -57,6 +57,14 @@ h3 {
 	background-color: #c7c7c7;
 	border-radius: 1.2rem;
 	color: #333;
-	padding: 3rem 1.5rem;
+	padding: 2rem 1.5rem;
 	margin: 3.5rem 0;
+}
+
+.display {
+	border: 0.5rem solid #333;
+	border-radius: 0.7rem;
+	height: 10rem;
+	margin: 0.9rem auto;
+	width: 12rem;
 }
