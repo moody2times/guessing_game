@@ -17,7 +17,13 @@ body {
 	padding: 5rem 15rem;
 }
 
-h1 {
+h1,
+h2,
+h3 {
 	font-family: "Press Start 2P";
+	text-transform: uppercase;
+}
+
+h1 {
 	font-size: 5rem;
 }
