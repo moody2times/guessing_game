@@ -13,11 +13,27 @@
 			<h1 class="header">guess my number</h1>
 			<div class="scoreBoard">
 				<h3 class="score yourScore">your score</h3>
+				<button class="btn">press start to play</button>
 				<h3 class="score hiScore">hi score</h3>
 			</div>
 		</header>
 		<main class="dashBoard">
-			<section class="gameBoard"></section>
+			<section class="gameBoard">
+				<div class="display">&quest;</div>
+				<div class="userInput">
+					<label class="form__label" for="userNumber"></label>
+					<input
+						class="form__input"
+						type="text"
+						name="userNumber"
+						id="userNumber"
+						placeholder="enter a number"
+					/>
+					<button class="btn">reset game</button>
+					<button class="btn">check</button>
+					<button class="btn">hint</button>
+				</div>
+			</section>
 		</main>
 		<footer class="rulesBoard"></footer>
 	</body>
