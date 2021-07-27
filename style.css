@@ -20,11 +20,16 @@ body {
 h1,
 h2,
 h3 {
+	display: inline-block;
 	font-family: "Press Start 2P";
+	padding: 1.5rem 2rem;
 	text-transform: uppercase;
 }
 
 h1 {
-	font-size: 5rem;
+	font-size: 4rem;
+}
+
+.banner {
 	text-align: center;
 }
