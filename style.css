@@ -52,3 +52,11 @@ h3 {
 
 	padding: 2rem 0;
 }
+
+.gameBoard {
+	background-color: #c7c7c7;
+	border-radius: 1.2rem;
+	color: #333;
+	padding: 3rem 1.5rem;
+	margin: 3.5rem 0;
+}
