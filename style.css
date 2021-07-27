@@ -26,8 +26,19 @@ h3 {
 	text-transform: uppercase;
 }
 
-h1 {
+.header {
 	font-size: 4rem;
+
+	position: relative;
+}
+
+.header-span {
+	display: inline-block;
+	font-size: 4.5rem;
+
+	position: absolute;
+	right: -5rem;
+	top: 0.2rem;
 }
 
 .banner {
