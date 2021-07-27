@@ -73,3 +73,9 @@ h3 {
 	text-align: center;
 	width: 12rem;
 }
+
+.userInput {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
