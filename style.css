@@ -83,3 +83,13 @@ h3 {
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
+
+.rules {
+	font-size: 1.6rem;
+	list-style-type: decimal;
+	padding: 1rem 2.5rem;
+}
+
+.rule {
+	padding: 0.4rem 1rem;
+}
