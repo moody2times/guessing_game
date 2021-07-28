@@ -101,7 +101,7 @@ h3 {
 .userInput {
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .form__input {
