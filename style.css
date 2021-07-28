@@ -53,6 +53,17 @@ h3 {
 	padding: 2rem 0;
 }
 
+.btn {
+	background-color: #61aafd;
+	border: none;
+	border-radius: 1.3rem;
+	box-shadow: 0 0.4rem 0.2rem rgba(51, 51, 51, 0.4);
+	display: inline-block;
+	font-size: 1.6rem;
+	padding: 1.5rem 3rem;
+	text-transform: uppercase;
+}
+
 .gameBoard {
 	background-color: #c7c7c7;
 	border-radius: 1.2rem;
