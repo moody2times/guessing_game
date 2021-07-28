@@ -87,7 +87,7 @@ h3 {
 .rules {
 	font-size: 1.6rem;
 	list-style-type: decimal;
-	padding: 1rem 2.5rem;
+	padding: 0 2.5rem;
 }
 
 .rule {
