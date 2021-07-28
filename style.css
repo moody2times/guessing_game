@@ -105,7 +105,7 @@ h3 {
 }
 
 .form__input {
-	background-color: #f1f1f1;
+	background-color: #e6e4e4;
 	border: none;
 	border-radius: 1.1rem;
 	display: inline-block;
@@ -113,7 +113,14 @@ h3 {
 	font-size: 1.8rem;
 	font-weight: bolder;
 	padding: 1.5rem 1rem;
+	text-align: right;
 	width: 30rem;
+}
+
+.form__input:focus {
+	background-color: #333;
+	color: ghostwhite;
+	outline: none;
 }
 
 .rules {
