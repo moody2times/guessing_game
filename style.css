@@ -104,6 +104,18 @@ h3 {
 	justify-content: space-between;
 }
 
+.form__input {
+	background-color: #f1f1f1;
+	border: none;
+	border-radius: 1.1rem;
+	display: inline-block;
+	font-family: inherit;
+	font-size: 1.8rem;
+	font-weight: bolder;
+	padding: 1.5rem 1rem;
+	width: 30rem;
+}
+
 .rules {
 	font-size: 1.6rem;
 	list-style-type: decimal;
