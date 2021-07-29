@@ -95,7 +95,11 @@ h3 {
 }
 
 .info {
-	margin: 1.5rem 0;
+	color: black;
+	font-size: 1.8rem;
+	font-weight: bolder;
+	margin: 2rem 0;
+	text-align: center;
 }
 
 .userInput {
