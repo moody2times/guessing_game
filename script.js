@@ -1,6 +1,6 @@
 "use strict";
 
-//DOM
+//DOM elements to interact with
 const headerEmoji = document.getElementById("headerEmoji");
 const points = document.getElementById("points");
 const hiScore = document.getElementById("hiScore");
@@ -12,3 +12,5 @@ const hintTwo = document.getElementById("hintTwo");
 const userNumber = document.getElementById("userNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
+
+//Code for receiving and using numbers entered by the users
