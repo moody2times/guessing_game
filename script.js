@@ -19,7 +19,12 @@ const secretNumber = Math.trunc(randomNumbers) + 1;
 
 //Code for receiving and using numbers entered by the users
 const onCheck = () => {
-	console.log(typeof userNumber, typeof parseInt(userNumber));
+	const convertedUserNumber = parseInt(userNumber);
+
+	//Validation for user entry
+	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
+		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
+	}
 };
 
 //Eventlisteners
