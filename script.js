@@ -9,6 +9,7 @@ const info = document.querySelector(".info");
 const pressStart = document.getElementById("pressStart");
 const hintOne = document.getElementById("hintOne");
 const hintTwo = document.getElementById("hintTwo");
+const form = document.getElementById("form");
 const userNumber = document.getElementById("userNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
@@ -23,6 +24,7 @@ const onCheck = () => {
 
 	//Validation for user entry
 	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
+		form.reset();
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
 		setTimeout(() => {
 			info.textContent = "\xa0";
