@@ -14,3 +14,9 @@ const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
 //Code for receiving and using numbers entered by the users
+const onCheck = () => {
+	console.log(typeof userNumber, typeof parseInt(userNumber));
+};
+
+//Eventlisteners
+check.addEventListener("click", onCheck);
