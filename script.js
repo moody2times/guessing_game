@@ -9,7 +9,7 @@ const info = document.querySelector(".info");
 const pressStart = document.getElementById("pressStart");
 const hintOne = document.getElementById("hintOne");
 const hintTwo = document.getElementById("hintTwo");
-const userNumber = document.getElementById("userNumber");
+const userNumber = document.getElementById("userNumber").value;
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
