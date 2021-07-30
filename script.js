@@ -25,8 +25,8 @@ const onCheck = () => {
 	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
 		setTimeout(() => {
-			info.textContent = "";
-		}, 1000);
+			info.textContent = "\xa0";
+		}, 2000);
 	}
 };
 
