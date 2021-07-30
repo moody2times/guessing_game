@@ -24,6 +24,9 @@ const onCheck = () => {
 	//Validation for user entry
 	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
+		setTimeout(() => {
+			info.textContent = "";
+		}, 1000);
 	}
 };
 
