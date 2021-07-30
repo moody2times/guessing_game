@@ -9,7 +9,7 @@ const info = document.querySelector(".info");
 const pressStart = document.getElementById("pressStart");
 const hintOne = document.getElementById("hintOne");
 const hintTwo = document.getElementById("hintTwo");
-const userNumber = document.getElementById("userNumber").value;
+const userNumber = document.getElementById("userNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
@@ -19,7 +19,7 @@ const secretNumber = Math.trunc(randomNumbers) + 1;
 
 //Code for receiving and using numbers entered by the users
 const onCheck = () => {
-	const convertedUserNumber = parseInt(userNumber);
+	const convertedUserNumber = parseInt(userNumber.value);
 
 	//Validation for user entry
 	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
