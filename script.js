@@ -14,6 +14,8 @@ const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
+let healthPoints = 5;
+
 //Generate random numbers to use as secret number
 const randomNumbers = Math.random() * 20;
 const secretNumber = Math.trunc(randomNumbers) + 1;
@@ -32,6 +34,13 @@ const onCheck = () => {
 	} else {
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+		} else {
+			info.textContent = `Fail! Try again!!!`;
+			healthPoints--;
+			points.textContent = `${healthPoints}`;
+			setTimeout(() => {
+				info.textContent = "\xa0";
+			}, 500);
 		}
 	}
 };
