@@ -14,7 +14,7 @@ const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
-//Game variables
+//In-game variables
 let healthPoints = 5;
 let pressedStart = false;
 let pressedHintOne = false;
@@ -39,9 +39,11 @@ const onCheck = () => {
 			info.textContent = "\xa0";
 		}, 2000);
 	} else {
+		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 		} else {
+			//what happens when player guessed wrong
 			info.textContent = `Fail! Try again!!!`;
 			healthPoints--;
 			points.textContent = `${healthPoints}`;
