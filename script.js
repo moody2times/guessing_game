@@ -10,7 +10,7 @@ const pressStart = document.getElementById("pressStart");
 const hintOne = document.getElementById("hintOne");
 const hintTwo = document.getElementById("hintTwo");
 const form = document.getElementById("form");
-const playerNumber = document.getElementById("userNumber");
+const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
