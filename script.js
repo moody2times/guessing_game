@@ -14,7 +14,14 @@ const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
+//Game variables
 let healthPoints = 5;
+let pressedStart = false;
+let pressedHintOne = false;
+let pressedHintTwo = false;
+let isGameOver = false;
+let didPlayerWin = false;
+let playerHiScore = 0;
 
 //Generate random numbers to use as secret number
 const randomNumbers = Math.random() * 20;
