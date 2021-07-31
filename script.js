@@ -26,6 +26,7 @@ let playerHiScore = 0;
 //Generate random numbers to use as secret number
 const randomNumbers = Math.random() * 20;
 const secretNumber = Math.trunc(randomNumbers) + 1;
+console.log(secretNumber);
 
 //Code for receiving and using numbers entered by the users
 const onCheck = () => {
@@ -42,6 +43,9 @@ const onCheck = () => {
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+			didPlayerWin = true;
+			playerHiScore += healthPoints;
+			hiScore.textContent = `${playerHiScore}`;
 		} else {
 			//what happens when player guessed wrong
 			if (healthPoints >= 1) {
