@@ -44,12 +44,17 @@ const onCheck = () => {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 		} else {
 			//what happens when player guessed wrong
-			info.textContent = `Fail! Try again!!!`;
-			healthPoints--;
-			points.textContent = `${healthPoints}`;
-			setTimeout(() => {
-				info.textContent = "\xa0";
-			}, 500);
+			if (healthPoints >= 1) {
+				info.textContent = `Fail! Try again!!!`;
+				healthPoints--;
+				points.textContent = `${healthPoints}`;
+				setTimeout(() => {
+					info.textContent = "\xa0";
+				}, 500);
+			} else {
+				//what happens when health points becomes zero
+				isGameOver = true;
+			}
 		}
 	}
 };
