@@ -20,15 +20,19 @@ const secretNumber = Math.trunc(randomNumbers) + 1;
 
 //Code for receiving and using numbers entered by the users
 const onCheck = () => {
-	const convertedUserNumber = parseInt(playerNumber.value);
+	const convertedPlayerNumber = parseInt(playerNumber.value);
+	form.reset();
 
 	//Validation for user entry
-	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
-		form.reset();
+	if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
 		setTimeout(() => {
 			info.textContent = "\xa0";
 		}, 2000);
+	} else {
+		if (secretNumber === convertedPlayerNumber) {
+			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+		}
 	}
 };
 
