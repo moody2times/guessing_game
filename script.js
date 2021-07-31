@@ -10,7 +10,7 @@ const pressStart = document.getElementById("pressStart");
 const hintOne = document.getElementById("hintOne");
 const hintTwo = document.getElementById("hintTwo");
 const form = document.getElementById("form");
-const userNumber = document.getElementById("userNumber");
+const playerNumber = document.getElementById("userNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
@@ -20,7 +20,7 @@ const secretNumber = Math.trunc(randomNumbers) + 1;
 
 //Code for receiving and using numbers entered by the users
 const onCheck = () => {
-	const convertedUserNumber = parseInt(userNumber.value);
+	const convertedUserNumber = parseInt(playerNumber.value);
 
 	//Validation for user entry
 	if (convertedUserNumber < 1 || convertedUserNumber > 20) {
