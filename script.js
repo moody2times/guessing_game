@@ -76,6 +76,8 @@ const onUseHint = (event) => {
 			return;
 		}
 		pressedHintOne = true;
+		healthPoints--;
+		points.textContent = `${healthPoints}`;
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number`)
 			: (info.textContent = `It is an odd number`);
@@ -95,6 +97,8 @@ const onUseHint = (event) => {
 			return;
 		}
 		pressedHintTwo = true;
+		healthPoints -= 2;
+		points.textContent = `${healthPoints}`;
 		secretNumber >= 10
 			? (info.textContent = `It is double digits`)
 			: (info.textContent = `It is single digit`);
