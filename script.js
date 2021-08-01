@@ -75,6 +75,17 @@ const onUseHint = (event) => {
 		}, 1500);
 		return;
 	}
+
+	if (event.target.id === "hintTwo") {
+		pressedHintTwo = true;
+		secretNumber >= 10
+			? (info.textContent = `It is double digits`)
+			: (info.textContent = `It is single digit`);
+		setTimeout(() => {
+			info.textContent = "\xa0";
+		}, 1500);
+		return;
+	}
 };
 
 //Eventlisteners
