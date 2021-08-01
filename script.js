@@ -63,8 +63,10 @@ const onCheck = () => {
 	}
 };
 
+//What happens when player use hints
 const onUseHint = (event) => {
 	console.log(event.target.id);
+	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
 		pressedHintOne = true;
 		secretNumber % 2 === 0
@@ -76,6 +78,7 @@ const onUseHint = (event) => {
 		return;
 	}
 
+	//what happens if player use hint two
 	if (event.target.id === "hintTwo") {
 		pressedHintTwo = true;
 		secretNumber >= 10
