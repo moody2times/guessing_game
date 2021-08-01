@@ -68,6 +68,13 @@ const onUseHint = (event) => {
 	console.log(event.target.id);
 	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
+		if (pressedHintOne) {
+			info.textContent = `Forbidden!!! 🚫`;
+			setTimeout(() => {
+				info.textContent = "\xa0";
+			}, 800);
+			return;
+		}
 		pressedHintOne = true;
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number`)
@@ -80,6 +87,13 @@ const onUseHint = (event) => {
 
 	//what happens if player use hint two
 	if (event.target.id === "hintTwo") {
+		if (pressedHintTwo) {
+			info.textContent = `Forbidden!!! 🚫`;
+			setTimeout(() => {
+				info.textContent = "\xa0";
+			}, 800);
+			return;
+		}
 		pressedHintTwo = true;
 		secretNumber >= 10
 			? (info.textContent = `It is double digits`)
