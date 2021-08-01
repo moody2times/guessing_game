@@ -63,5 +63,21 @@ const onCheck = () => {
 	}
 };
 
+const onUseHint = (event) => {
+	console.log(event.target.id);
+	if (event.target.id === "hintOne") {
+		pressedHintOne = true;
+		secretNumber % 2 === 0
+			? (info.textContent = `It is an even number`)
+			: (info.textContent = `It is an odd number`);
+		setTimeout(() => {
+			info.textContent = "\xa0";
+		}, 1500);
+		return;
+	}
+};
+
 //Eventlisteners
 check.addEventListener("click", onCheck);
+hintOne.addEventListener("click", onUseHint);
+hintTwo.addEventListener("click", onUseHint);
