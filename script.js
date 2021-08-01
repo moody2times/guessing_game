@@ -65,7 +65,6 @@ const onCheck = () => {
 
 //What happens when player use hints
 const onUseHint = (event) => {
-	console.log(event.target.id);
 	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
 		if (pressedHintOne) {
