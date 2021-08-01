@@ -79,8 +79,8 @@ const onUseHint = (event) => {
 		healthPoints--;
 		points.textContent = `${healthPoints}`;
 		secretNumber % 2 === 0
-			? (info.textContent = `It is an even number`)
-			: (info.textContent = `It is an odd number`);
+			? (info.textContent = `It is an even number 2️⃣`)
+			: (info.textContent = `It is an odd number 1️⃣`);
 		setTimeout(() => {
 			info.textContent = "\xa0";
 		}, 1500);
@@ -101,8 +101,8 @@ const onUseHint = (event) => {
 		healthPoints -= 2;
 		points.textContent = `${healthPoints}`;
 		secretNumber >= 10
-			? (info.textContent = `It is double digits`)
-			: (info.textContent = `It is single digit`);
+			? (info.textContent = `It is double digits 🔟`)
+			: (info.textContent = `It is single digit 0️⃣`);
 		setTimeout(() => {
 			info.textContent = "\xa0";
 		}, 1500);
