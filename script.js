@@ -69,6 +69,7 @@ const onUseHint = (event) => {
 	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
 		if (pressedHintOne) {
+			//what happens if player already used hint one
 			info.textContent = `Forbidden!!! 🚫`;
 			setTimeout(() => {
 				info.textContent = "\xa0";
@@ -90,6 +91,7 @@ const onUseHint = (event) => {
 	//what happens if player use hint two
 	if (event.target.id === "hintTwo") {
 		if (pressedHintTwo) {
+			//what happens if player already used hint two
 			info.textContent = `Forbidden!!! 🚫`;
 			setTimeout(() => {
 				info.textContent = "\xa0";
