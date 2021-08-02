@@ -68,6 +68,7 @@ const onCheck = () => {
 			display.textContent = `${secretNumber}`;
 			playerHiScore += healthPoints;
 			hiScore.textContent = `${playerHiScore}`;
+			playerNumber.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
 			if (healthPoints >= 1) {
@@ -151,6 +152,7 @@ const onResetGame = () => {
 	display.textContent = `❓`;
 	info.textContent = "\xa0";
 	secret();
+	playerNumber.removeAttribute("disabled");
 	console.log(secretNumber);
 };
 
