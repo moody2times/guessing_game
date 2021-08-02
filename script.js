@@ -55,6 +55,7 @@ const onCheck = () => {
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 			didPlayerWin = true;
+			display.textContent = `${secretNumber}`;
 			playerHiScore += healthPoints;
 			hiScore.textContent = `${playerHiScore}`;
 		} else {
