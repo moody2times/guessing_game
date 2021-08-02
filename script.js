@@ -30,6 +30,15 @@ console.log(secretNumber);
 
 //When user enter a number and press check
 const onCheck = () => {
+	//What happens if player press check but entered no number
+	if (!playerNumber.value) {
+		info.textContent = `Choose a number from 1 - 20 and try again!!`;
+		setTimeout(() => {
+			info.textContent = "\xa0";
+		}, 2000);
+		return;
+	}
+
 	//convert user number to a Number and reset the form
 	const convertedPlayerNumber = parseInt(playerNumber.value);
 	form.reset();
