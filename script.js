@@ -22,10 +22,15 @@ let pressedHintTwo = false;
 let isGameOver = false;
 let didPlayerWin = false;
 let playerHiScore = 0;
+let secretNumber;
 
 //Generate random numbers to use as secret number
-const randomNumbers = Math.random() * 20;
-const secretNumber = Math.trunc(randomNumbers) + 1;
+const secret = () => {
+	const randomNumbers = Math.random() * 20;
+	secretNumber = Math.trunc(randomNumbers) + 1;
+	return secretNumber;
+};
+secret();
 console.log(secretNumber);
 
 //When user enter a number and press check
@@ -145,6 +150,8 @@ const onResetGame = () => {
 	hiScore.textContent = `${playerHiScore}`;
 	display.textContent = `❓`;
 	info.textContent = "\xa0";
+	secret();
+	console.log(secretNumber);
 };
 
 //Eventlisteners
