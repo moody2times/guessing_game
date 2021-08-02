@@ -14,7 +14,7 @@ const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
-//In-game variables
+//In-game state
 let healthPoints = 5;
 let pressedStart = false;
 let pressedHintOne = false;
@@ -28,8 +28,9 @@ const randomNumbers = Math.random() * 20;
 const secretNumber = Math.trunc(randomNumbers) + 1;
 console.log(secretNumber);
 
-//Code for receiving and using numbers entered by the users
+//When user enter a number and press check
 const onCheck = () => {
+	//convert user number to a Number and reset the form
 	const convertedPlayerNumber = parseInt(playerNumber.value);
 	form.reset();
 
