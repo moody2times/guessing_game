@@ -30,6 +30,11 @@ console.log(secretNumber);
 
 //When user enter a number and press check
 const onCheck = () => {
+	//What happens after player wins
+	if (didPlayerWin) {
+		return;
+	}
+
 	//convert user number to a Number and reset the form
 	const convertedPlayerNumber = parseInt(playerNumber.value);
 	form.reset();
@@ -77,6 +82,11 @@ const onCheck = () => {
 
 //What happens when player use hints
 const onUseHint = (event) => {
+	//What happens after player wins
+	if (didPlayerWin) {
+		return;
+	}
+
 	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
 		if (pressedHintOne) {
