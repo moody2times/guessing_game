@@ -36,7 +36,7 @@ console.log(secretNumber);
 //When user enter a number and press check
 const onCheck = () => {
 	//What happens after player wins
-	if (didPlayerWin) {
+	if (didPlayerWin || isGameOver) {
 		return;
 	}
 
@@ -71,9 +71,11 @@ const onCheck = () => {
 			playerNumber.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
+			console.log(healthPoints);
 			if (healthPoints >= 1) {
 				info.textContent = `Fail! Try again!!!`;
 				healthPoints--;
+				console.log(healthPoints);
 				points.textContent = `${healthPoints}`;
 				setTimeout(() => {
 					info.textContent = "\xa0";
@@ -81,6 +83,8 @@ const onCheck = () => {
 			} else {
 				//what happens when health points becomes zero
 				isGameOver = true;
+				info.textContent = `Game over!!! Continue?`;
+				playerNumber.setAttribute("disabled", true);
 			}
 		}
 	}
@@ -89,7 +93,7 @@ const onCheck = () => {
 //What happens when player use hints
 const onUseHint = (event) => {
 	//What happens after player wins
-	if (didPlayerWin) {
+	if (didPlayerWin || isGameOver) {
 		return;
 	}
 
