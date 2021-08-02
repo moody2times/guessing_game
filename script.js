@@ -120,7 +120,7 @@ const onUseHint = (event) => {
 			return;
 		}
 		pressedHintTwo = true;
-		healthPoints -= 2;
+		healthPoints--;
 		points.textContent = `${healthPoints}`;
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
