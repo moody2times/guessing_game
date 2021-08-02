@@ -132,7 +132,23 @@ const onUseHint = (event) => {
 	}
 };
 
+//What happens when player press reset button
+const onResetGame = () => {
+	healthPoints = 5;
+	playerHiScore = 0;
+	pressedStart = false;
+	pressedHintOne = false;
+	pressedHintTwo = false;
+	isGameOver = false;
+	didPlayerWin = false;
+	points.textContent = `${healthPoints}`;
+	hiScore.textContent = `${playerHiScore}`;
+	display.textContent = `❓`;
+	info.textContent = "\xa0";
+};
+
 //Eventlisteners
 check.addEventListener("click", onCheck);
 hintOne.addEventListener("click", onUseHint);
 hintTwo.addEventListener("click", onUseHint);
+reset.addEventListener("click", onResetGame);
