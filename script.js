@@ -97,7 +97,12 @@ const onCheck = () => {
 				//what happens when health points becomes zero
 				isGameOver = true;
 				info.textContent = `Game over!!! Continue?`;
+				pressStart.removeAttribute("disabled");
+				hintOne.setAttribute("disabled", true);
+				hintTwo.setAttribute("disabled", true);
 				playerNumber.setAttribute("disabled", true);
+				check.setAttribute("disabled", true);
+				reset.setAttribute("disabled", true);
 			}
 		}
 	}
