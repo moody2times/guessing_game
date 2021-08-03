@@ -24,6 +24,13 @@ let healthPoints,
 	playerHiScore,
 	secretNumber;
 
+//On page load or refresh state
+hintOne.setAttribute("disabled", true);
+hintTwo.setAttribute("disabled", true);
+playerNumber.setAttribute("disabled", true);
+check.setAttribute("disabled", true);
+reset.setAttribute("disabled", true);
+
 //Generate random numbers to use as secret number
 const secret = () => {
 	const randomNumbers = Math.random() * 20;
