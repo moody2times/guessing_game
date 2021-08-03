@@ -73,6 +73,16 @@ h3 {
 	transform: translateY(0.5rem);
 }
 
+.btn:disabled {
+	background-color: #808080;
+	cursor: not-allowed;
+}
+
+.btn:disabled:active {
+	box-shadow: 0 0.4rem 0.2rem rgba(51, 51, 51, 0.4);
+	transform: translateY(0);
+}
+
 .white--btn {
 	background-color: #c7c7c7;
 	width: 25rem;
