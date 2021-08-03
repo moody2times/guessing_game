@@ -49,6 +49,8 @@ const onPressStart = () => {
 		isGameOver = false;
 		didPlayerWin = false;
 		playerHiScore = 0;
+		points.textContent = `${healthPoints}`;
+		info.textContent = "\xa0";
 	}
 };
 
@@ -102,7 +104,7 @@ const onCheck = () => {
 			} else {
 				//what happens when health points becomes zero
 				isGameOver = true;
-				pressStart = false;
+				pressedStart = false;
 				info.textContent = `Game over!!! Continue?`;
 				pressStart.removeAttribute("disabled");
 				hintOne.setAttribute("disabled", true);
