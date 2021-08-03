@@ -33,6 +33,19 @@ const secret = () => {
 secret();
 console.log(secretNumber);
 
+//What happens when start button is pressed or not pressed
+const onPressStart = () => {
+	pressedStart = true;
+	if (pressedStart) {
+		hintOne.removeAttribute("disabled");
+		hintTwo.removeAttribute("disabled");
+		check.removeAttribute("disabled");
+		reset.removeAttribute("disabled");
+		playerNumber.removeAttribute("disabled");
+		pressStart.setAttribute("disabled", true);
+	}
+};
+
 //When user enter a number and press check
 const onCheck = () => {
 	//What happens after player wins
@@ -161,6 +174,7 @@ const onResetGame = () => {
 };
 
 //Eventlisteners
+pressStart.addEventListener("click", onPressStart);
 check.addEventListener("click", onCheck);
 hintOne.addEventListener("click", onUseHint);
 hintTwo.addEventListener("click", onUseHint);
