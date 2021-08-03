@@ -15,14 +15,14 @@ const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
 //In-game state
-let healthPoints = 5;
-let pressedStart = false;
-let pressedHintOne = false;
-let pressedHintTwo = false;
-let isGameOver = false;
-let didPlayerWin = false;
-let playerHiScore = 0;
-let secretNumber;
+let healthPoints,
+	pressedStart,
+	pressedHintOne,
+	pressedHintTwo,
+	isGameOver,
+	didPlayerWin,
+	playerHiScore,
+	secretNumber;
 
 //Generate random numbers to use as secret number
 const secret = () => {
@@ -43,6 +43,12 @@ const onPressStart = () => {
 		reset.removeAttribute("disabled");
 		playerNumber.removeAttribute("disabled");
 		pressStart.setAttribute("disabled", true);
+		healthPoints = 5;
+		pressedHintOne = false;
+		pressedHintTwo = false;
+		isGameOver = false;
+		didPlayerWin = false;
+		playerHiScore = 0;
 	}
 };
 
@@ -96,6 +102,7 @@ const onCheck = () => {
 			} else {
 				//what happens when health points becomes zero
 				isGameOver = true;
+				pressStart = false;
 				info.textContent = `Game over!!! Continue?`;
 				pressStart.removeAttribute("disabled");
 				hintOne.setAttribute("disabled", true);
