@@ -108,7 +108,6 @@ const onCheck = () => {
 			hintTwo.setAttribute("disabled", true);
 			playerNumber.setAttribute("disabled", true);
 			check.setAttribute("disabled", true);
-			reset.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
 			console.log(healthPoints);
