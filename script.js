@@ -21,8 +21,8 @@ let healthPoints,
 	pressedHintTwo,
 	isGameOver,
 	didPlayerWin,
-	playerHiScore,
 	secretNumber;
+let playerHiScore = 0;
 
 //On page load or refresh state
 hintOne.setAttribute("disabled", true);
@@ -55,7 +55,6 @@ const onPressStart = () => {
 		pressedHintTwo = false;
 		isGameOver = false;
 		didPlayerWin = false;
-		playerHiScore = 0;
 		points.textContent = `${healthPoints}`;
 		info.textContent = "\xa0";
 	}
@@ -96,7 +95,20 @@ const onCheck = () => {
 			display.textContent = `${secretNumber}`;
 			playerHiScore += healthPoints;
 			hiScore.textContent = `${playerHiScore}`;
+			pressStart.textContent = `Continue?`;
+			pressedStart = false;
+			healthPoints = 5;
+			points.textContent = `${healthPoints}`;
+			display.textContent = `❓`;
+			info.textContent = "\xa0";
+			secret();
+			console.log(secretNumber);
+			pressStart.removeAttribute("disabled");
+			hintOne.setAttribute("disabled", true);
+			hintTwo.setAttribute("disabled", true);
 			playerNumber.setAttribute("disabled", true);
+			check.setAttribute("disabled", true);
+			reset.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
 			console.log(healthPoints);
