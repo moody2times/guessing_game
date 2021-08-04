@@ -110,11 +110,9 @@ const onCheck = () => {
 			check.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
-			console.log(healthPoints);
 			if (healthPoints >= 1) {
 				info.textContent = `Fail! Try again!!!`;
 				healthPoints--;
-				console.log(healthPoints);
 				points.textContent = `${healthPoints}`;
 				setTimeout(() => {
 					info.textContent = "\xa0";
