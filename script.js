@@ -38,7 +38,6 @@ const secret = () => {
 	return secretNumber;
 };
 secret();
-console.log(secretNumber);
 
 //What happens when start button is pressed
 const onPressStart = () => {
