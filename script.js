@@ -56,6 +56,7 @@ const onPressStart = () => {
 		isGameOver = false;
 		didPlayerWin = false;
 		points.textContent = `${healthPoints}`;
+		display.textContent = `❓`;
 		info.textContent = "\xa0";
 	}
 };
