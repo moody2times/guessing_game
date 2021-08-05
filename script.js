@@ -73,7 +73,6 @@ const onCheck = () => {
 	form.reset();
 
 	//What happens if player press check but entered no number or player's number is NaN
-	console.log(convertedPlayerNumber);
 	if (!convertedPlayerNumber) {
 		info.textContent = `Not a number!!! Please try again`;
 		setTimeout(() => {
@@ -98,10 +97,7 @@ const onCheck = () => {
 			hiScore.textContent = `${playerHiScore}`;
 			pressStart.textContent = `Continue?`;
 			pressedStart = false;
-			// healthPoints = 5;
-			// points.textContent = `${healthPoints}`;
 			secret();
-			console.log(secretNumber);
 			pressStart.removeAttribute("disabled");
 			hintOne.setAttribute("disabled", true);
 			hintTwo.setAttribute("disabled", true);
@@ -198,7 +194,6 @@ const onResetGame = () => {
 	info.textContent = "\xa0";
 	secret();
 	playerNumber.removeAttribute("disabled");
-	console.log(secretNumber);
 };
 
 //Eventlisteners
