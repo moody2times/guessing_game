@@ -49,7 +49,7 @@ const onPressStart = () => {
 		reset.removeAttribute("disabled");
 		playerNumber.removeAttribute("disabled");
 		pressStart.setAttribute("disabled", true);
-		healthPoints = 5;
+		healthPoints = 7;
 		pressedHintOne = false;
 		pressedHintTwo = false;
 		isGameOver = false;
@@ -170,7 +170,7 @@ const onUseHint = (event) => {
 			return;
 		}
 		pressedHintTwo = true;
-		healthPoints--;
+		healthPoints -= 2;
 		points.textContent = `${healthPoints}`;
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
