@@ -90,6 +90,7 @@ const onCheck = () => {
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+			headerEmoji.textContent = `😁`;
 			didPlayerWin = true;
 			display.textContent = `${secretNumber}`;
 			playerHiScore += healthPoints;
@@ -106,16 +107,19 @@ const onCheck = () => {
 			//what happens when player guessed wrong
 			if (healthPoints) {
 				info.textContent = `Fail! Try again!!!`;
+				headerEmoji.textContent = `🤦‍`;
 				healthPoints--;
 				points.textContent = `${healthPoints}`;
 				setTimeout(() => {
 					info.textContent = "\xa0";
+					headerEmoji.textContent = `🤔`;
 				}, 500);
 				if (healthPoints === 0) {
 					//what happens when health points becomes zero
 					isGameOver = true;
 					pressedStart = false;
 					info.textContent = `Game over!!! Continue?`;
+					headerEmoji.textContent = `😭`;
 					hiScore.textContent = `${healthPoints}`;
 					pressStart.textContent = `Play again?`;
 					pressStart.removeAttribute("disabled");
