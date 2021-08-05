@@ -116,6 +116,7 @@ const onCheck = () => {
 				isGameOver = true;
 				pressedStart = false;
 				info.textContent = `Game over!!! Continue?`;
+				pressStart.textContent = `Play again?`;
 				pressStart.removeAttribute("disabled");
 				hintOne.setAttribute("disabled", true);
 				hintTwo.setAttribute("disabled", true);
