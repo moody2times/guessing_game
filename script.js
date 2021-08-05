@@ -97,10 +97,8 @@ const onCheck = () => {
 			hiScore.textContent = `${playerHiScore}`;
 			pressStart.textContent = `Continue?`;
 			pressedStart = false;
-			healthPoints = 5;
-			points.textContent = `${healthPoints}`;
-			display.textContent = `❓`;
-			info.textContent = "\xa0";
+			// healthPoints = 5;
+			// points.textContent = `${healthPoints}`;
 			secret();
 			console.log(secretNumber);
 			pressStart.removeAttribute("disabled");
@@ -110,7 +108,7 @@ const onCheck = () => {
 			check.setAttribute("disabled", true);
 		} else {
 			//what happens when player guessed wrong
-			if (healthPoints >= 1) {
+			if (healthPoints) {
 				info.textContent = `Fail! Try again!!!`;
 				healthPoints--;
 				points.textContent = `${healthPoints}`;
@@ -127,7 +125,6 @@ const onCheck = () => {
 				hintTwo.setAttribute("disabled", true);
 				playerNumber.setAttribute("disabled", true);
 				check.setAttribute("disabled", true);
-				reset.setAttribute("disabled", true);
 			}
 		}
 	}
