@@ -40,7 +40,7 @@ const secret = () => {
 secret();
 console.log(secretNumber);
 
-//What happens when start button is pressed or not pressed
+//What happens when start button is pressed
 const onPressStart = () => {
 	pressedStart = true;
 	if (pressedStart) {
