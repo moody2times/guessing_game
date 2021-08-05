@@ -188,7 +188,7 @@ const onUseHint = (event) => {
 
 //What happens when player press reset button
 const onResetGame = () => {
-	healthPoints = 5;
+	healthPoints = 7;
 	playerHiScore = 0;
 	pressedStart = false;
 	pressedHintOne = false;
