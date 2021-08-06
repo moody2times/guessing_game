@@ -22,7 +22,6 @@ let healthPoints,
 	isGameOver,
 	didPlayerWin,
 	secretNumber;
-let playerHiScore = 0;
 
 //On page load or refresh state
 const toggleButtonsState = (gameState = "preStart") => {
@@ -32,6 +31,16 @@ const toggleButtonsState = (gameState = "preStart") => {
 		playerNumber.removeAttribute("disabled");
 		check.removeAttribute("disabled");
 		reset.removeAttribute("disabled");
+		return;
+	}
+
+	if (gameState === "playerWin") {
+		secret();
+		pressStart.removeAttribute("disabled");
+		hintOne.setAttribute("disabled", true);
+		hintTwo.setAttribute("disabled", true);
+		playerNumber.setAttribute("disabled", true);
+		check.setAttribute("disabled", true);
 		return;
 	}
 
@@ -109,16 +118,9 @@ const onCheck = () => {
 			headerEmoji.textContent = `😁`;
 			didPlayerWin = true;
 			display.textContent = `${secretNumber}`;
-			playerHiScore += healthPoints;
-			hiScore.textContent = `${playerHiScore}`;
+			hiScore.textContent = `${healthPoints}`;
 			pressStart.textContent = `Continue?`;
-			pressedStart = false;
-			secret();
-			pressStart.removeAttribute("disabled");
-			hintOne.setAttribute("disabled", true);
-			hintTwo.setAttribute("disabled", true);
-			playerNumber.setAttribute("disabled", true);
-			check.setAttribute("disabled", true);
+			toggleButtonsState("playerWin");
 		} else {
 			//what happens when player guessed wrong
 			if (healthPoints) {
