@@ -23,6 +23,13 @@ let healthPoints,
 	didPlayerWin,
 	secretNumber;
 
+//Generate random numbers to use as secret number
+const secret = () => {
+	const randomNumbers = Math.random() * 20;
+	secretNumber = Math.trunc(randomNumbers) + 1;
+	return secretNumber;
+};
+
 //On page load or refresh state
 const toggleButtonsState = (gameState = "preStart") => {
 	if (gameState === "start") {
@@ -59,13 +66,6 @@ const toggleButtonsState = (gameState = "preStart") => {
 	reset.setAttribute("disabled", true);
 };
 toggleButtonsState();
-
-//Generate random numbers to use as secret number
-const secret = () => {
-	const randomNumbers = Math.random() * 20;
-	secretNumber = Math.trunc(randomNumbers) + 1;
-	return secretNumber;
-};
 
 //What happens when start button is pressed
 const onPressStart = () => {
