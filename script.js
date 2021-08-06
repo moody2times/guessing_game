@@ -204,19 +204,8 @@ const onUseHint = (event) => {
 
 //What happens when player press reset button
 const onResetGame = () => {
-	healthPoints = 7;
-	playerHiScore = 0;
-	pressedStart = false;
-	pressedHintOne = false;
-	pressedHintTwo = false;
-	isGameOver = false;
-	didPlayerWin = false;
-	points.textContent = `${healthPoints}`;
-	hiScore.textContent = `${playerHiScore}`;
-	display.textContent = `❓`;
-	info.textContent = "\xa0";
-	secret();
-	playerNumber.removeAttribute("disabled");
+	hiScore.textContent = 0;
+	onPressStart();
 };
 
 //Eventlisteners
