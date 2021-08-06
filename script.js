@@ -15,13 +15,7 @@ const check = document.getElementById("check");
 const reset = document.getElementById("reset");
 
 //In-game state
-let healthPoints,
-	pressedStart,
-	pressedHintOne,
-	pressedHintTwo,
-	isGameOver,
-	didPlayerWin,
-	secretNumber;
+let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
 
 //Generate random numbers to use as secret number
 const secret = () => {
@@ -79,11 +73,6 @@ const onPressStart = () => {
 
 //When user enter a number and press check
 const onCheck = () => {
-	//What happens after player wins
-	if (didPlayerWin || isGameOver) {
-		return;
-	}
-
 	//convert user number to a Number and reset the form
 	const convertedPlayerNumber = parseInt(playerNumber.value);
 	form.reset();
@@ -108,7 +97,6 @@ const onCheck = () => {
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 			headerEmoji.textContent = `😁`;
-			didPlayerWin = true;
 			display.textContent = `${secretNumber}`;
 			hiScore.textContent = `${healthPoints}`;
 			pressStart.textContent = `Continue?`;
@@ -126,7 +114,6 @@ const onCheck = () => {
 				}, 500);
 				if (healthPoints === 0) {
 					//what happens when health points becomes zero
-					isGameOver = true;
 					info.textContent = `Game over!!! Continue?`;
 					headerEmoji.textContent = `😭`;
 					pressStart.textContent = `Play again?`;
@@ -140,11 +127,6 @@ const onCheck = () => {
 
 //What happens when player use hints
 const onUseHint = (event) => {
-	//What happens after player wins
-	if (didPlayerWin || isGameOver) {
-		return;
-	}
-
 	//what happens if player use hint one
 	if (event.target.id === "hintOne") {
 		if (pressedHintOne) {
