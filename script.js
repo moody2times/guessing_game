@@ -34,7 +34,7 @@ const toggleButtonsState = (gameState = "preStart") => {
 		return;
 	}
 
-	if (gameState === "playerWin") {
+	if (gameState === "playerWin" || "playerLose") {
 		secret();
 		pressStart.removeAttribute("disabled");
 		hintOne.setAttribute("disabled", true);
@@ -140,11 +140,7 @@ const onCheck = () => {
 					headerEmoji.textContent = `😭`;
 					hiScore.textContent = `${healthPoints}`;
 					pressStart.textContent = `Play again?`;
-					pressStart.removeAttribute("disabled");
-					hintOne.setAttribute("disabled", true);
-					hintTwo.setAttribute("disabled", true);
-					playerNumber.setAttribute("disabled", true);
-					check.setAttribute("disabled", true);
+					toggleButtonsState("playerLose");
 					//clear the timeout
 				}
 			}
