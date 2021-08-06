@@ -51,14 +51,6 @@ const toggleButtonsState = (gameState = "preStart") => {
 		return;
 	}
 
-	if (gameState === "continue") {
-		hintOne.removeAttribute("disabled");
-		hintTwo.removeAttribute("disabled");
-		playerNumber.removeAttribute("disabled");
-		check.removeAttribute("disabled");
-		return;
-	}
-
 	hintOne.setAttribute("disabled", true);
 	hintTwo.setAttribute("disabled", true);
 	playerNumber.setAttribute("disabled", true);
@@ -135,10 +127,8 @@ const onCheck = () => {
 				if (healthPoints === 0) {
 					//what happens when health points becomes zero
 					isGameOver = true;
-					pressedStart = false;
 					info.textContent = `Game over!!! Continue?`;
 					headerEmoji.textContent = `😭`;
-					hiScore.textContent = `${healthPoints}`;
 					pressStart.textContent = `Play again?`;
 					toggleButtonsState("playerLose");
 					//clear the timeout
