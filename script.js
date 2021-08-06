@@ -25,14 +25,31 @@ let healthPoints,
 let playerHiScore = 0;
 
 //On page load or refresh state
-const disabledBtns = () => {
+const toggleButtonsState = (gameState = "preStart") => {
+	if (gameState === "start") {
+		hintOne.removeAttribute("disabled");
+		hintTwo.removeAttribute("disabled");
+		playerNumber.removeAttribute("disabled");
+		check.removeAttribute("disabled");
+		reset.removeAttribute("disabled");
+		return;
+	}
+
+	if (gameState === "continue") {
+		hintOne.removeAttribute("disabled");
+		hintTwo.removeAttribute("disabled");
+		playerNumber.removeAttribute("disabled");
+		check.removeAttribute("disabled");
+		return;
+	}
+
 	hintOne.setAttribute("disabled", true);
 	hintTwo.setAttribute("disabled", true);
 	playerNumber.setAttribute("disabled", true);
 	check.setAttribute("disabled", true);
 	reset.setAttribute("disabled", true);
 };
-disabledBtns();
+toggleButtonsState();
 
 //Generate random numbers to use as secret number
 const secret = () => {
@@ -40,17 +57,13 @@ const secret = () => {
 	secretNumber = Math.trunc(randomNumbers) + 1;
 	return secretNumber;
 };
-secret();
 
 //What happens when start button is pressed
 const onPressStart = () => {
 	pressedStart = true;
 	if (pressedStart) {
-		hintOne.removeAttribute("disabled");
-		hintTwo.removeAttribute("disabled");
-		check.removeAttribute("disabled");
-		reset.removeAttribute("disabled");
-		playerNumber.removeAttribute("disabled");
+		toggleButtonsState("start");
+		secret();
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
 		pressedHintOne = false;
