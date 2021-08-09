@@ -94,6 +94,7 @@ const onCheck = () => {
 			info.textContent = "\xa0";
 		}, 2000);
 	} else {
+		//DEBUG: the expected behaviour for the healthpoints and hiscore
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
