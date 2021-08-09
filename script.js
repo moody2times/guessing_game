@@ -126,7 +126,7 @@ const onCheck = () => {
 	}
 };
 
-// REVIEW: Review this code to refactor
+// REVIEW: Review this code to refactor it
 //What happens when player use hints
 const onUseHint = (event) => {
 	//what happens if player use hint one
