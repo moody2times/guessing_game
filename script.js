@@ -71,6 +71,7 @@ const onPressStart = () => {
 	}
 };
 
+//TODO: Refactor the timer function
 //When user enter a number and press check
 const onCheck = () => {
 	//convert user number to a Number and reset the form
@@ -125,6 +126,7 @@ const onCheck = () => {
 	}
 };
 
+// REVIEW: Review this code to refactor
 //What happens when player use hints
 const onUseHint = (event) => {
 	//what happens if player use hint one
