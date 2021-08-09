@@ -71,7 +71,6 @@ const onPressStart = () => {
 	}
 };
 
-//TODO: Refactor the timer function
 //When user enter a number and press check
 const onCheck = () => {
 	//convert user number to a Number and reset the form
@@ -87,6 +86,7 @@ const onCheck = () => {
 		return;
 	}
 
+	//TODO: Refactor the timer function
 	//Validation for user entry
 	if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
