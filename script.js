@@ -63,8 +63,6 @@ const onPressStart = () => {
 		healthPoints = 7;
 		pressedHintOne = false;
 		pressedHintTwo = false;
-		isGameOver = false;
-		didPlayerWin = false;
 		points.textContent = `${healthPoints}`;
 		display.textContent = `❓`;
 		info.textContent = "\xa0";
