@@ -70,9 +70,9 @@ const onPressStart = () => {
 };
 
 //timer function
-const timer = (info = "", milSec) => {
+const timer = (text, milSec) => {
 	setTimeout(() => {
-		info.textContent = "\xa0" || info;
+		info.textContent = "\xa0" || text;
 	}, milSec);
 };
 
@@ -85,7 +85,7 @@ const onCheck = () => {
 	//What happens if player press check but entered no number or player's number is NaN
 	if (!convertedPlayerNumber) {
 		info.textContent = `Not a number!!! Please try again`;
-		timer(1500);
+		timer(false, 1700);
 		return;
 	}
 
