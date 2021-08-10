@@ -71,6 +71,13 @@ const onPressStart = () => {
 	}
 };
 
+//timer function
+const timer = (info, milSec) => {
+	setTimeout(() => {
+		info.textContent = info;
+	}, milSec);
+};
+
 //When user enter a number and press check
 const onCheck = () => {
 	//convert user number to a Number and reset the form
