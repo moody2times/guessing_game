@@ -93,9 +93,7 @@ const onCheck = () => {
 	//Validation for user entry
 	if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
-		setTimeout(() => {
-			info.textContent = "\xa0";
-		}, 2000);
+		timer(false, 2500);
 	} else {
 		//DEBUG: the expected behaviour for the healthpoints and hiscore
 		//what happens when player guessed right
