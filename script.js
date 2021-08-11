@@ -102,6 +102,7 @@ const onSubmit = (event) => {
 		} else {
 			//what happens when player guessed right
 			if (secretNumber === convertedPlayerNumber) {
+				display.classList.add("win");
 				info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 				headerEmoji.textContent = `😁`;
 				display.textContent = `${secretNumber}`;

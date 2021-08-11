@@ -162,3 +162,8 @@ h3 {
 .rule {
 	padding: 0.4rem 1rem;
 }
+
+.win {
+	background-color: rgb(255, 118, 118);
+	color: antiquewhite;
+}
