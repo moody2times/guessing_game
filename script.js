@@ -96,7 +96,6 @@ const onCheck = () => {
 		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
 		timer(false, 2500);
 	} else {
-		//DEBUG: the expected behaviour for the healthpoints and hiscore
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
