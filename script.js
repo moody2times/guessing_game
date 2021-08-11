@@ -65,7 +65,7 @@ const onPressStart = () => {
 		pressedHintOne = false;
 		pressedHintTwo = false;
 		points.textContent = `${healthPoints}`;
-		display.textContent = `❓`;
+		display.textContent = `?`;
 		info.textContent = "\xa0";
 	}
 };
