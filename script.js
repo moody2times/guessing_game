@@ -77,7 +77,6 @@ const timer = (text, milSec) => {
 	}, milSec);
 };
 
-//TODO: Delegate the submit event to all buttons
 const onSubmit = (event) => {
 	event.preventDefault();
 
