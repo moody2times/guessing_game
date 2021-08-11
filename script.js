@@ -36,7 +36,7 @@ const toggleButtonsState = (gameState = "preStart") => {
 		return;
 	}
 
-	if (gameState === "playerWin" || "playerLose") {
+	if (gameState === "playerWin" || gameState === "playerLose") {
 		secret();
 		pressStart.removeAttribute("disabled");
 		hintOne.setAttribute("disabled", true);
