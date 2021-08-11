@@ -56,6 +56,7 @@ toggleButtonsState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
+	//TODO: Remove the win class when player press start
 	pressedStart = true;
 	if (pressedStart) {
 		toggleButtonsState("start");
@@ -94,7 +95,7 @@ const onSubmit = (event) => {
 			return;
 		}
 
-		//TODO: Refactor the timer function
+		//REFACTOR: Refactor the timer function
 		//Validation for user entry
 		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 			info.textContent = `Illegal number! Please enter a number from 1 - 20`;
@@ -134,6 +135,7 @@ const onSubmit = (event) => {
 		}
 	}
 
+	//REFACTOR:
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
 		//what happens if player use hint one
