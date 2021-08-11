@@ -102,7 +102,8 @@ const onCheck = () => {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 			headerEmoji.textContent = `😁`;
 			display.textContent = `${secretNumber}`;
-			hiScore.textContent = `${healthPoints + hiScore}`;
+			playerHiScore = `${healthPoints + playerHiScore}`;
+			hiScore.textContent = playerHiScore;
 			pressStart.textContent = `Continue?`;
 			toggleButtonsState("playerWin");
 		} else {
