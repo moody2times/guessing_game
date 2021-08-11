@@ -16,6 +16,7 @@ const reset = document.getElementById("reset");
 
 //In-game state
 let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
+let playerHiScore = 0;
 
 //Generate random numbers to use as secret number
 const secret = () => {
@@ -101,7 +102,7 @@ const onCheck = () => {
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 			headerEmoji.textContent = `😁`;
 			display.textContent = `${secretNumber}`;
-			hiScore.textContent = `${healthPoints}`;
+			hiScore.textContent = `${healthPoints + hiScore}`;
 			pressStart.textContent = `Continue?`;
 			toggleButtonsState("playerWin");
 		} else {
