@@ -77,6 +77,7 @@ const timer = (text, milSec) => {
 	}, milSec);
 };
 
+//BUG: Pressing the enter button in the input field activates hintOne
 const onSubmit = (event) => {
 	event.preventDefault();
 
