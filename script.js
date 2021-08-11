@@ -12,7 +12,7 @@ const hintTwo = document.getElementById("hintTwo");
 const form = document.getElementById("form");
 const playerNumber = document.getElementById("playerNumber");
 const check = document.getElementById("check");
-const reset = document.getElementById("reset");
+const resetBtn = document.getElementById("resetBtn");
 
 //In-game state
 let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
@@ -32,7 +32,7 @@ const toggleButtonsState = (gameState = "preStart") => {
 		hintTwo.removeAttribute("disabled");
 		playerNumber.removeAttribute("disabled");
 		check.removeAttribute("disabled");
-		reset.removeAttribute("disabled");
+		resetBtn.removeAttribute("disabled");
 		return;
 	}
 
@@ -50,7 +50,7 @@ const toggleButtonsState = (gameState = "preStart") => {
 	hintTwo.setAttribute("disabled", true);
 	playerNumber.setAttribute("disabled", true);
 	check.setAttribute("disabled", true);
-	reset.setAttribute("disabled", true);
+	resetBtn.setAttribute("disabled", true);
 };
 toggleButtonsState();
 
@@ -77,63 +77,65 @@ const timer = (text, milSec) => {
 	}, milSec);
 };
 
-//When user enter a number and press check
-const onCheck = () => {
-	//convert user number to a Number and reset the form
-	const convertedPlayerNumber = parseInt(playerNumber.value);
-	form.reset();
+//TODO: Delegate the submit event to all buttons
+const onSubmit = (event) => {
+	event.preventDefault();
 
-	//What happens if player press check but entered no number or player's number is NaN
-	if (!convertedPlayerNumber) {
-		info.textContent = `Not a number!!! Please try again`;
-		timer(false, 1700);
-		return;
-	}
+	//When user enter a number and press check
+	if (event.submitter.id === "check") {
+		//convert user number to a Number and reset the form
+		const convertedPlayerNumber = parseInt(playerNumber.value);
+		form.reset();
 
-	//TODO: Refactor the timer function
-	//Validation for user entry
-	if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
-		info.textContent = `Illegal number! Please enter a number from 1 - 20`;
-		timer(false, 2500);
-	} else {
-		//what happens when player guessed right
-		if (secretNumber === convertedPlayerNumber) {
-			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
-			headerEmoji.textContent = `😁`;
-			display.textContent = `${secretNumber}`;
-			playerHiScore += healthPoints;
-			hiScore.textContent = playerHiScore;
-			pressStart.textContent = `Continue?`;
-			toggleButtonsState("playerWin");
+		//What happens if player press check but entered no number or player's number is NaN
+		if (!convertedPlayerNumber) {
+			info.textContent = `Not a number!!! Please try again`;
+			timer(false, 1700);
+			return;
+		}
+
+		//TODO: Refactor the timer function
+		//Validation for user entry
+		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
+			info.textContent = `Illegal number! Please enter a number from 1 - 20`;
+			timer(false, 2500);
 		} else {
-			//what happens when player guessed wrong
-			if (healthPoints) {
-				info.textContent = `Fail! Try again!!!`;
-				headerEmoji.textContent = `🤦‍`;
-				healthPoints--;
-				points.textContent = `${healthPoints}`;
-				setTimeout(() => {
-					info.textContent = "\xa0";
-					headerEmoji.textContent = `🤔`;
-				}, 500);
-				if (healthPoints === 0) {
-					//what happens when health points becomes zero
-					info.textContent = `Game over!!! Continue?`;
-					headerEmoji.textContent = `😭`;
-					pressStart.textContent = `Play again?`;
-					toggleButtonsState("playerLose");
-					//clear the timeout
+			//what happens when player guessed right
+			if (secretNumber === convertedPlayerNumber) {
+				info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+				headerEmoji.textContent = `😁`;
+				display.textContent = `${secretNumber}`;
+				playerHiScore += healthPoints;
+				hiScore.textContent = playerHiScore;
+				pressStart.textContent = `Continue?`;
+				toggleButtonsState("playerWin");
+			} else {
+				//what happens when player guessed wrong
+				if (healthPoints) {
+					info.textContent = `Fail! Try again!!!`;
+					headerEmoji.textContent = `🤦‍`;
+					healthPoints--;
+					points.textContent = `${healthPoints}`;
+					setTimeout(() => {
+						info.textContent = "\xa0";
+						headerEmoji.textContent = `🤔`;
+					}, 500);
+					if (healthPoints === 0) {
+						//what happens when health points becomes zero
+						info.textContent = `Game over!!! Continue?`;
+						headerEmoji.textContent = `😭`;
+						pressStart.textContent = `Play again?`;
+						toggleButtonsState("playerLose");
+						//clear the timeout
+					}
 				}
 			}
 		}
 	}
-};
 
-// REVIEW: Review this code to refactor it
-//What happens when player use hints
-const onUseHint = (event) => {
-	//what happens if player use hint one
-	if (event.target.id === "hintOne") {
+	//what happens when player press use hint buttons
+	if (event.submitter.id === "hintOne") {
+		//what happens if player use hint one
 		if (pressedHintOne) {
 			//what happens if player already used hint one
 			info.textContent = `Forbidden!!! 🚫`;
@@ -155,7 +157,7 @@ const onUseHint = (event) => {
 	}
 
 	//what happens if player use hint two
-	if (event.target.id === "hintTwo") {
+	if (event.submitter.id === "hintTwo") {
 		if (pressedHintTwo) {
 			//what happens if player already used hint two
 			info.textContent = `Forbidden!!! 🚫`;
@@ -175,17 +177,14 @@ const onUseHint = (event) => {
 		}, 1500);
 		return;
 	}
-};
 
-//What happens when player press reset button
-const onResetGame = () => {
-	hiScore.textContent = 0;
-	onPressStart();
+	//What happens when player press reset button
+	if (event.submitter.id === "resetBtn") {
+		hiScore.textContent = 0;
+		onPressStart();
+	}
 };
 
 //Eventlisteners
 pressStart.addEventListener("click", onPressStart);
-check.addEventListener("click", onCheck);
-hintOne.addEventListener("click", onUseHint);
-hintTwo.addEventListener("click", onUseHint);
-reset.addEventListener("click", onResetGame);
+form.addEventListener("submit", onSubmit);
