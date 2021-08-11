@@ -124,6 +124,16 @@ h3 {
 	justify-content: space-around;
 }
 
+#form {
+	text-align: center;
+	width: 100%;
+}
+
+#form > .btn,
+#form > .form__input {
+	margin: 0 1.2rem;
+}
+
 .form__input {
 	background-color: #e6e4e4;
 	border: none;
