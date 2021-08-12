@@ -63,6 +63,7 @@ const onPressStart = () => {
 		points.textContent = `${healthPoints}`;
 		display.textContent = `?`;
 		info.textContent = "\xa0";
+		headerEmoji.textContent = `🤔`;
 	}
 };
 
