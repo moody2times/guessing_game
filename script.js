@@ -183,7 +183,10 @@ const onSubmit = (event) => {
 };
 
 const onKeyPressHandler = (event) => {
-	event.preventDefault();
+	const { key, keyCode } = event;
+	if (key === "Enter" && keyCode === 13) {
+		event.preventDefault();
+	}
 };
 
 //Eventlisteners
