@@ -4,6 +4,7 @@
 const headerEmoji = document.getElementById("headerEmoji");
 const points = document.getElementById("points");
 const hiScore = document.getElementById("hiScore");
+const gameBoard = document.querySelector(".gameBoard");
 const display = document.querySelector(".display");
 const info = document.querySelector(".info");
 const pressStart = document.getElementById("pressStart");
@@ -55,6 +56,7 @@ const onPressStart = () => {
 	if (pressedStart) {
 		toggleButtonsState("start");
 		secret();
+		gameBoard.classList.remove("gameBoard--win");
 		display.classList.remove("win");
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
@@ -99,6 +101,7 @@ const onSubmit = (event) => {
 		} else {
 			//what happens when player guessed right
 			if (secretNumber === convertedPlayerNumber) {
+				gameBoard.classList.add("gameBoard--win");
 				display.classList.add("win");
 				info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 				headerEmoji.textContent = `😁`;
