@@ -68,9 +68,9 @@ const onPressStart = () => {
 };
 
 //timer function
-const timer = (text, emoji = false, milSec) => {
+const timer = (emoji = false, milSec) => {
 	setTimeout(() => {
-		info.textContent = "\xa0" || text;
+		info.textContent = "\xa0";
 		emoji && (headerEmoji.textContent = `🤔`);
 	}, milSec);
 	return timer;
@@ -92,11 +92,10 @@ const onSubmit = (event) => {
 			return;
 		}
 
-		//REFACTOR: Refactor the timer function
 		//Validation for user entry
 		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 			info.textContent = `Illegal number! Please enter a number from 1 - 20`;
-			timer(false, 2500);
+			timer(false, 1700);
 		} else {
 			//what happens when player guessed right
 			if (secretNumber === convertedPlayerNumber) {
@@ -124,7 +123,7 @@ const onSubmit = (event) => {
 						toggleButtonsState("playerLose");
 						return;
 					}
-					timer(false, true, 500);
+					timer(true, 500);
 				}
 			}
 		}
@@ -137,9 +136,7 @@ const onSubmit = (event) => {
 		if (pressedHintOne) {
 			//what happens if player already used hint one
 			info.textContent = `Forbidden!!! 🚫`;
-			setTimeout(() => {
-				info.textContent = "\xa0";
-			}, 800);
+			timer(false, 500);
 			return;
 		}
 		pressedHintOne = true;
@@ -148,9 +145,8 @@ const onSubmit = (event) => {
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number 2️⃣`)
 			: (info.textContent = `It is an odd number 1️⃣`);
-		setTimeout(() => {
-			info.textContent = "\xa0";
-		}, 1500);
+		timer(false, 1700);
+
 		return;
 	}
 
@@ -159,9 +155,8 @@ const onSubmit = (event) => {
 		if (pressedHintTwo) {
 			//what happens if player already used hint two
 			info.textContent = `Forbidden!!! 🚫`;
-			setTimeout(() => {
-				info.textContent = "\xa0";
-			}, 800);
+			timer(false, 500);
+
 			return;
 		}
 		pressedHintTwo = true;
@@ -170,9 +165,8 @@ const onSubmit = (event) => {
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
 			: (info.textContent = `It is single digit 0️⃣`);
-		setTimeout(() => {
-			info.textContent = "\xa0";
-		}, 1500);
+		timer(false, 1700);
+
 		return;
 	}
 
