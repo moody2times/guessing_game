@@ -1,5 +1,6 @@
 "use strict";
 
+//NOTE: Remove the form elements declaration
 //DOM elements to interact with
 const headerEmoji = document.getElementById("headerEmoji");
 const points = document.getElementById("points");
