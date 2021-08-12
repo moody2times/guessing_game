@@ -68,10 +68,12 @@ const onPressStart = () => {
 };
 
 //timer function
-const timer = (text, milSec) => {
+const timer = (text, emoji = false, milSec) => {
 	setTimeout(() => {
 		info.textContent = "\xa0" || text;
+		emoji && (headerEmoji.textContent = `🤔`);
 	}, milSec);
+	return timer;
 };
 
 const onSubmit = (event) => {
@@ -113,18 +115,16 @@ const onSubmit = (event) => {
 					headerEmoji.textContent = `🤦‍`;
 					healthPoints--;
 					points.textContent = `${healthPoints}`;
-					setTimeout(() => {
-						info.textContent = "\xa0";
-						headerEmoji.textContent = `🤔`;
-					}, 500);
 					if (healthPoints === 0) {
 						//what happens when health points becomes zero
+						clearTimeout(timer);
 						info.textContent = `Game over!!! Continue?`;
 						headerEmoji.textContent = `😭`;
 						pressStart.textContent = `Play again?`;
 						toggleButtonsState("playerLose");
-						//clear the timeout
+						return;
 					}
+					timer(false, true, 500);
 				}
 			}
 		}
