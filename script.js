@@ -74,7 +74,6 @@ const timer = (text, milSec) => {
 	}, milSec);
 };
 
-//BUG: Pressing the enter button in the input field activates hintOne
 const onSubmit = (event) => {
 	event.preventDefault();
 
@@ -184,6 +183,11 @@ const onSubmit = (event) => {
 	}
 };
 
+const onKeyPressHandler = (event) => {
+	event.preventDefault();
+};
+
 //Eventlisteners
 pressStart.addEventListener("click", onPressStart);
 form.addEventListener("submit", onSubmit);
+form.addEventListener("keypress", onKeyPressHandler);
