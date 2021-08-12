@@ -8,12 +8,7 @@ const hiScore = document.getElementById("hiScore");
 const display = document.querySelector(".display");
 const info = document.querySelector(".info");
 const pressStart = document.getElementById("pressStart");
-const hintOne = document.getElementById("hintOne");
-const hintTwo = document.getElementById("hintTwo");
 const form = document.getElementById("form");
-const playerNumber = document.getElementById("playerNumber");
-const check = document.getElementById("check");
-const resetBtn = document.getElementById("resetBtn");
 
 //In-game state
 let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
@@ -29,29 +24,29 @@ const secret = () => {
 //On page load or refresh state
 const toggleButtonsState = (gameState = "preStart") => {
 	if (gameState === "start") {
-		hintOne.removeAttribute("disabled");
-		hintTwo.removeAttribute("disabled");
-		playerNumber.removeAttribute("disabled");
-		check.removeAttribute("disabled");
-		resetBtn.removeAttribute("disabled");
+		form.hintOne.removeAttribute("disabled");
+		form.hintTwo.removeAttribute("disabled");
+		form.playerNumber.removeAttribute("disabled");
+		form.check.removeAttribute("disabled");
+		form.resetBtn.removeAttribute("disabled");
 		return;
 	}
 
 	if (gameState === "playerWin" || gameState === "playerLose") {
 		secret();
 		pressStart.removeAttribute("disabled");
-		hintOne.setAttribute("disabled", true);
-		hintTwo.setAttribute("disabled", true);
-		playerNumber.setAttribute("disabled", true);
-		check.setAttribute("disabled", true);
+		form.hintOne.setAttribute("disabled", true);
+		form.hintTwo.setAttribute("disabled", true);
+		form.playerNumber.setAttribute("disabled", true);
+		form.check.setAttribute("disabled", true);
 		return;
 	}
 
-	hintOne.setAttribute("disabled", true);
-	hintTwo.setAttribute("disabled", true);
-	playerNumber.setAttribute("disabled", true);
-	check.setAttribute("disabled", true);
-	resetBtn.setAttribute("disabled", true);
+	form.hintOne.setAttribute("disabled", true);
+	form.hintTwo.setAttribute("disabled", true);
+	form.playerNumber.setAttribute("disabled", true);
+	form.check.setAttribute("disabled", true);
+	form.resetBtn.setAttribute("disabled", true);
 };
 toggleButtonsState();
 
@@ -86,7 +81,7 @@ const onSubmit = (event) => {
 	//When user enter a number and press check
 	if (event.submitter.id === "check") {
 		//convert user number to a Number and reset the form
-		const convertedPlayerNumber = parseInt(playerNumber.value);
+		const convertedPlayerNumber = parseInt(form.playerNumber.value);
 		form.reset();
 
 		//What happens if player press check but entered no number or player's number is NaN
