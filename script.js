@@ -1,6 +1,5 @@
 "use strict";
 
-//NOTE: Remove the form elements declaration
 //DOM elements to interact with
 const headerEmoji = document.getElementById("headerEmoji");
 const points = document.getElementById("points");
@@ -52,11 +51,11 @@ toggleButtonsState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
-	//TODO: Remove the win class when player press start
 	pressedStart = true;
 	if (pressedStart) {
 		toggleButtonsState("start");
 		secret();
+		display.classList.remove("win");
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
 		pressedHintOne = false;
