@@ -163,7 +163,12 @@ h3 {
 	padding: 0.4rem 1rem;
 }
 
+/* win styles */
+.gameBoard--win {
+	background-color: #fff;
+}
+
 .win {
-	background-color: rgb(255, 118, 118);
+	background-color: #3a90f1;
 	color: antiquewhite;
 }
