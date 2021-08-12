@@ -168,6 +168,10 @@ h3 {
 	background-color: #fff;
 }
 
+.gameBoard--lose {
+	background-color: #808080;
+}
+
 .win {
 	background-color: #3a90f1;
 	color: antiquewhite;
