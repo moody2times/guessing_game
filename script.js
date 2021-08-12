@@ -11,9 +11,13 @@ const pressStart = document.getElementById("pressStart");
 const form = document.getElementById("form");
 
 //In-game state
-let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
-didPlayerWin;
-didPlayerLose;
+let healthPoints,
+	pressedStart,
+	pressedHintOne,
+	pressedHintTwo,
+	secretNumber,
+	didPlayerWin,
+	didPlayerLose;
 let playerHiScore = 0;
 
 //Generate random numbers to use as secret number
@@ -42,9 +46,6 @@ const toggleButtonsState = (gameState = "preStart") => {
 		form.hintTwo.setAttribute("disabled", true);
 		form.playerNumber.setAttribute("disabled", true);
 		form.check.setAttribute("disabled", true);
-		gameBoard.classList.remove("gameBoard--win");
-		gameBoard.classList.remove("gameBoard--lose");
-
 		return;
 	}
 
@@ -69,13 +70,18 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
-		display.classList.remove("win");
 
-		// if (display.classList.contains('win') ||
-		// 	gameBoard.classList.contains('gameBoard--win') ||
-		// 	gameBoard.classList.contains('gameBoard--lose')) {
+		//BUG: When player win the win style is not remove
+		if (didPlayerWin) {
+			didPlayerWin = false;
+			display.classList.remove("win");
+			gameBoard.classList.contains("gameBoard--win");
+		}
 
-		// 	}
+		if (didPlayerLose) {
+			didPlayerLose = false;
+			gameBoard.classList.contains("gameBoard--lose");
+		}
 	}
 };
 
@@ -120,6 +126,7 @@ const onSubmit = (event) => {
 				hiScore.textContent = playerHiScore;
 				pressStart.textContent = `Continue?`;
 				pressedStart = false;
+				didPlayerWin = true;
 				toggleButtonsState("continue");
 			} else {
 				//what happens when player guessed wrong
@@ -137,6 +144,7 @@ const onSubmit = (event) => {
 						pressStart.textContent = `Play again?`;
 						toggleButtonsState("continue");
 						pressedStart = false;
+						didPlayerLose = true;
 						return;
 					}
 					timer(true, 500);
