@@ -24,6 +24,7 @@ const secret = () => {
 //On page load or refresh state
 const toggleButtonsState = (gameState = "preStart") => {
 	if (gameState === "start") {
+		pressedStart = true;
 		form.hintOne.removeAttribute("disabled");
 		form.hintTwo.removeAttribute("disabled");
 		form.playerNumber.removeAttribute("disabled");
@@ -32,13 +33,16 @@ const toggleButtonsState = (gameState = "preStart") => {
 		return;
 	}
 
-	if (gameState === "playerWin" || gameState === "playerLose") {
+	if (gameState === "continue") {
 		secret();
 		pressStart.removeAttribute("disabled");
 		form.hintOne.setAttribute("disabled", true);
 		form.hintTwo.setAttribute("disabled", true);
 		form.playerNumber.setAttribute("disabled", true);
 		form.check.setAttribute("disabled", true);
+		gameBoard.classList.remove("gameBoard--win");
+		gameBoard.classList.remove("gameBoard--lose");
+
 		return;
 	}
 
@@ -52,12 +56,9 @@ toggleButtonsState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
-	pressedStart = true;
+	toggleButtonsState("start");
 	if (pressedStart) {
-		toggleButtonsState("start");
 		secret();
-		gameBoard.classList.remove("gameBoard--win");
-		display.classList.remove("win");
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
 		pressedHintOne = false;
@@ -66,6 +67,13 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
+		display.classList.remove("win");
+
+		// if (display.classList.contains('win') ||
+		// 	gameBoard.classList.contains('gameBoard--win') ||
+		// 	gameBoard.classList.contains('gameBoard--lose')) {
+
+		// 	}
 	}
 };
 
@@ -109,7 +117,8 @@ const onSubmit = (event) => {
 				playerHiScore += healthPoints;
 				hiScore.textContent = playerHiScore;
 				pressStart.textContent = `Continue?`;
-				toggleButtonsState("playerWin");
+				pressedStart = false;
+				toggleButtonsState("continue");
 			} else {
 				//what happens when player guessed wrong
 				if (healthPoints) {
@@ -120,10 +129,12 @@ const onSubmit = (event) => {
 					if (healthPoints === 0) {
 						//what happens when health points becomes zero
 						clearTimeout(timer);
+						gameBoard.classList.add("gameBoard--lose");
 						info.textContent = `Game over!!! Continue?`;
 						headerEmoji.textContent = `😭`;
 						pressStart.textContent = `Play again?`;
-						toggleButtonsState("playerLose");
+						toggleButtonsState("continue");
+						pressedStart = false;
 						return;
 					}
 					timer(true, 500);
