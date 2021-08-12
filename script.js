@@ -12,6 +12,8 @@ const form = document.getElementById("form");
 
 //In-game state
 let healthPoints, pressedStart, pressedHintOne, pressedHintTwo, secretNumber;
+didPlayerWin;
+didPlayerLose;
 let playerHiScore = 0;
 
 //Generate random numbers to use as secret number
