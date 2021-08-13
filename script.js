@@ -30,7 +30,6 @@ const secret = () => {
 //On page load or refresh state
 const toggleButtonsState = (gameState = "preStart") => {
 	if (gameState === "start") {
-		pressedStart = true;
 		form.hintOne.removeAttribute("disabled");
 		form.hintTwo.removeAttribute("disabled");
 		form.playerNumber.removeAttribute("disabled");
@@ -40,7 +39,6 @@ const toggleButtonsState = (gameState = "preStart") => {
 	}
 
 	if (gameState === "continue") {
-		secret();
 		pressStart.removeAttribute("disabled");
 		form.hintOne.setAttribute("disabled", true);
 		form.hintTwo.setAttribute("disabled", true);
@@ -59,8 +57,9 @@ toggleButtonsState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
-	toggleButtonsState("start");
+	pressedStart = true;
 	if (pressedStart) {
+		toggleButtonsState("start");
 		secret();
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
@@ -70,18 +69,18 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
+		console.log(didPlayerWin, didPlayerLose);
+	}
 
-		//BUG: When player win the win style is not remove
-		if (didPlayerWin) {
-			didPlayerWin = false;
-			display.classList.remove("win");
-			gameBoard.classList.contains("gameBoard--win");
-		}
+	if (didPlayerWin) {
+		didPlayerWin = false;
+		display.classList.remove("win");
+		gameBoard.classList.remove("gameBoard--win");
+	}
 
-		if (didPlayerLose) {
-			didPlayerLose = false;
-			gameBoard.classList.contains("gameBoard--lose");
-		}
+	if (didPlayerLose) {
+		didPlayerLose = false;
+		gameBoard.classList.remove("gameBoard--lose");
 	}
 };
 
@@ -137,14 +136,13 @@ const onSubmit = (event) => {
 					points.textContent = `${healthPoints}`;
 					if (healthPoints === 0) {
 						//what happens when health points becomes zero
-						clearTimeout(timer);
 						gameBoard.classList.add("gameBoard--lose");
 						info.textContent = `Game over!!! Continue?`;
 						headerEmoji.textContent = `😭`;
 						pressStart.textContent = `Play again?`;
-						toggleButtonsState("continue");
 						pressedStart = false;
 						didPlayerLose = true;
+						toggleButtonsState("continue");
 						return;
 					}
 					timer(true, 500);
