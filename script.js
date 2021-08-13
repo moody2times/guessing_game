@@ -162,7 +162,6 @@ const onSubmit = (event) => {
 		info.textContent = `Forbidden!!! 🚫`;
 	};
 
-	//REFACTOR:
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
 		//what happens if player use hint one
