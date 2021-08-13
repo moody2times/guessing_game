@@ -155,15 +155,20 @@ const onSubmit = (event) => {
 		}
 	}
 
+	// function to prevent using a hint twice
+	const hintUsed = () => {
+		timer && clearTimeout(timer);
+		timer(false, 500);
+		info.textContent = `Forbidden!!! 🚫`;
+	};
+
 	//REFACTOR:
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
 		//what happens if player use hint one
 		if (pressedHintOne) {
 			//what happens if player already used hint one
-			timer && clearTimeout(timer);
-			timer(false, 500);
-			info.textContent = `Forbidden!!! 🚫`;
+			hintUsed();
 			return;
 		}
 		pressedHintOne = true;
@@ -181,10 +186,7 @@ const onSubmit = (event) => {
 	if (event.submitter.id === "hintTwo") {
 		if (pressedHintTwo) {
 			//what happens if player already used hint two
-			timer && clearTimeout(timer);
-			timer(false, 500);
-			info.textContent = `Forbidden!!! 🚫`;
-
+			hintUsed();
 			return;
 		}
 		pressedHintTwo = true;
