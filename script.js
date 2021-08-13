@@ -161,18 +161,19 @@ const onSubmit = (event) => {
 		//what happens if player use hint one
 		if (pressedHintOne) {
 			//what happens if player already used hint one
-			info.textContent = `Forbidden!!! 🚫`;
+			timer && clearTimeout(timer);
 			timer(false, 500);
+			info.textContent = `Forbidden!!! 🚫`;
 			return;
 		}
 		pressedHintOne = true;
 		healthPoints--;
 		points.textContent = `${healthPoints}`;
+		timer && clearTimeout(timer);
+		timer(false, 1700);
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number 2️⃣`)
 			: (info.textContent = `It is an odd number 1️⃣`);
-		timer(false, 1700);
-
 		return;
 	}
 
@@ -180,19 +181,20 @@ const onSubmit = (event) => {
 	if (event.submitter.id === "hintTwo") {
 		if (pressedHintTwo) {
 			//what happens if player already used hint two
-			info.textContent = `Forbidden!!! 🚫`;
+			timer && clearTimeout(timer);
 			timer(false, 500);
+			info.textContent = `Forbidden!!! 🚫`;
 
 			return;
 		}
 		pressedHintTwo = true;
 		healthPoints -= 2;
 		points.textContent = `${healthPoints}`;
+		timer && clearTimeout(timer);
+		timer(false, 1700);
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
 			: (info.textContent = `It is single digit 0️⃣`);
-		timer(false, 1700);
-
 		return;
 	}
 
