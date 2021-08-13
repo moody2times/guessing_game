@@ -17,7 +17,9 @@ let healthPoints,
 	pressedHintTwo,
 	secretNumber,
 	didPlayerWin,
-	didPlayerLose;
+	didPlayerLose,
+	gameStarted,
+	gameEnded;
 let playerHiScore = 0;
 
 //Generate random numbers to use as secret number
@@ -28,17 +30,16 @@ const secret = () => {
 };
 
 //On page load or refresh state
-const toggleButtonsState = (gameState = "preStart") => {
-	if (gameState === "start") {
+const toggleButtonsState = () => {
+	if (gameStarted) {
 		form.hintOne.removeAttribute("disabled");
 		form.hintTwo.removeAttribute("disabled");
 		form.playerNumber.removeAttribute("disabled");
 		form.check.removeAttribute("disabled");
-		form.resetBtn.removeAttribute("disabled");
 		return;
 	}
 
-	if (gameState === "continue") {
+	if (gameEnded) {
 		pressStart.removeAttribute("disabled");
 		form.hintOne.setAttribute("disabled", true);
 		form.hintTwo.setAttribute("disabled", true);
@@ -51,15 +52,15 @@ const toggleButtonsState = (gameState = "preStart") => {
 	form.hintTwo.setAttribute("disabled", true);
 	form.playerNumber.setAttribute("disabled", true);
 	form.check.setAttribute("disabled", true);
-	form.resetBtn.setAttribute("disabled", true);
 };
 toggleButtonsState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
 	pressedStart = true;
+	gameStarted = true;
 	if (pressedStart) {
-		toggleButtonsState("start");
+		toggleButtonsState();
 		secret();
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
@@ -69,7 +70,6 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
-		console.log(didPlayerWin, didPlayerLose);
 	}
 
 	if (didPlayerWin) {
@@ -126,7 +126,9 @@ const onSubmit = (event) => {
 				pressStart.textContent = `Continue?`;
 				pressedStart = false;
 				didPlayerWin = true;
-				toggleButtonsState("continue");
+				gameEnded = true;
+				gameStarted = false;
+				toggleButtonsState();
 			} else {
 				//what happens when player guessed wrong
 				if (healthPoints) {
@@ -142,7 +144,9 @@ const onSubmit = (event) => {
 						pressStart.textContent = `Play again?`;
 						pressedStart = false;
 						didPlayerLose = true;
-						toggleButtonsState("continue");
+						gameEnded = true;
+						gameStarted = false;
+						toggleButtonsState();
 						return;
 					}
 					timer(true, 500);
