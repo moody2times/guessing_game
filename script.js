@@ -217,3 +217,10 @@ const onKeyPressHandler = (event) => {
 pressStart.addEventListener("click", onPressStart);
 form.addEventListener("submit", onSubmit);
 form.addEventListener("keypress", onKeyPressHandler);
+
+/* TODO:
+1. Change hiScore to score
+2. Add a new feature - game is over after 5 games
+3. Set the hiScore after the game is finally over
+4. Store the hiScore in local storage to simulate database storage
+*/
