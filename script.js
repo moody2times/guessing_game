@@ -21,6 +21,7 @@ let healthPoints,
 	gameStarted,
 	gameEnded;
 let playerHiScore = 0;
+let storeScore = "playerHiScore";
 
 //Generate random numbers to use as secret number
 const secret = () => {
