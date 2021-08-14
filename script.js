@@ -130,6 +130,7 @@ const onSubmit = (event) => {
 				gameEnded = true;
 				gameStarted = false;
 				toggleButtonsState();
+				localStorage.setItem(storeScore, playerHiScore.toString());
 			} else {
 				//what happens when player guessed wrong
 				if (healthPoints) {
