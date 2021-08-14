@@ -204,6 +204,7 @@ const onSubmit = (event) => {
 	//What happens when player press reset button
 	if (event.submitter.id === "resetBtn") {
 		hiScore.textContent = 0;
+		localStorage.clear();
 		onPressStart();
 	}
 };
