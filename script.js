@@ -71,6 +71,9 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
+		if (playerHiScore === 0 && localStorage.key(storeScore)) {
+			hiScore.textContent = localStorage.getItem(storeScore);
+		}
 	}
 
 	if (didPlayerWin) {
