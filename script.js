@@ -231,5 +231,4 @@ form.addEventListener("keypress", onKeyPressHandler);
 2. Add a new feature - game is over after 5 games
 3. Set the hiScore after the game is finally over
 4. Store the hiScore in local storage to simulate database storage (completed)
-5. Use session storage instead of the localStorage API for number 4 above;
 */
