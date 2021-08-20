@@ -97,6 +97,13 @@ const timer = (emoji = false, milSec) => {
 	return timer;
 };
 
+// function to prevent using a hint twice
+const hintUsed = () => {
+	timer && clearTimeout(timer);
+	timer(false, 500);
+	info.textContent = `Forbidden!!! 🚫`;
+};
+
 const onSubmit = (event) => {
 	event.preventDefault();
 
@@ -159,13 +166,6 @@ const onSubmit = (event) => {
 			}
 		}
 	}
-
-	// function to prevent using a hint twice
-	const hintUsed = () => {
-		timer && clearTimeout(timer);
-		timer(false, 500);
-		info.textContent = `Forbidden!!! 🚫`;
-	};
 
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
