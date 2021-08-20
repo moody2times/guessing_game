@@ -104,6 +104,13 @@ const hintUsed = () => {
 	info.textContent = `Forbidden!!! 🚫`;
 };
 
+const warning = (message = false) => {
+	message
+		? (info.textContent = `Please enter a number from 1 - 20`)
+		: (info.textContent = `Not a number!!! Please try again`);
+	timer(false, 1700);
+};
+
 const onSubmit = (event) => {
 	event.preventDefault();
 
@@ -115,15 +122,14 @@ const onSubmit = (event) => {
 
 		//What happens if player press check but entered no number or player's number is NaN
 		if (!convertedPlayerNumber) {
-			info.textContent = `Not a number!!! Please try again`;
-			timer(false, 1700);
+			warning(true);
 			return;
 		}
 
 		//Validation for user entry
 		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
-			info.textContent = `Illegal number! Please enter a number from 1 - 20`;
-			timer(false, 1700);
+			warning();
+			return;
 		} else {
 			//what happens when player guessed right
 			if (secretNumber === convertedPlayerNumber) {
