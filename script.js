@@ -31,7 +31,7 @@ const secret = () => {
 };
 
 //On page load or refresh state
-const toggleButtonsState = () => {
+const setGameState = () => {
 	if (gameStarted) {
 		form.hintOne.removeAttribute("disabled");
 		form.hintTwo.removeAttribute("disabled");
@@ -53,15 +53,19 @@ const toggleButtonsState = () => {
 	form.hintTwo.setAttribute("disabled", true);
 	form.playerNumber.setAttribute("disabled", true);
 	form.check.setAttribute("disabled", true);
+	if (playerHiScore === 0 && localStorage.key(storeScore)) {
+		playerHiScore = +localStorage.getItem(storeScore);
+		hiScore.textContent = playerHiScore;
+	}
 };
-toggleButtonsState();
+setGameState();
 
 //What happens when start button is pressed
 const onPressStart = () => {
 	pressedStart = true;
 	gameStarted = true;
 	if (pressedStart) {
-		toggleButtonsState();
+		setGameState();
 		secret();
 		pressStart.setAttribute("disabled", true);
 		healthPoints = 7;
@@ -71,10 +75,6 @@ const onPressStart = () => {
 		display.textContent = `?`;
 		info.textContent = "\xa0";
 		headerEmoji.textContent = `🤔`;
-		if (playerHiScore === 0 && localStorage.key(storeScore)) {
-			playerHiScore = +localStorage.getItem(storeScore);
-			hiScore.textContent = playerHiScore;
-		}
 	}
 
 	if (didPlayerWin) {
@@ -147,7 +147,7 @@ const onSubmit = (event) => {
 			didPlayerWin = true;
 			gameEnded = true;
 			gameStarted = false;
-			toggleButtonsState();
+			setGameState();
 			localStorage.setItem(storeScore, playerHiScore.toString());
 		} else {
 			//what happens when player guessed wrong
@@ -163,7 +163,7 @@ const onSubmit = (event) => {
 				didPlayerLose = true;
 				gameEnded = true;
 				gameStarted = false;
-				toggleButtonsState();
+				setGameState();
 				return;
 			}
 			info.textContent = `Fail! Try again!!!`;
@@ -216,7 +216,7 @@ const onSubmit = (event) => {
 		points.textContent = healthPoints;
 		gameStarted = false;
 		gameEnded = true;
-		toggleButtonsState();
+		setGameState();
 	}
 };
 
