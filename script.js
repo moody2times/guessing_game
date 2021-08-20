@@ -107,8 +107,8 @@ const hintUsed = () => {
 
 const warning = (message = false) => {
 	message
-		? (info.textContent = `Please enter a number from 1 - 20`)
-		: (info.textContent = `Not a number!!! Please try again`);
+		? (info.textContent = `Please enter a number to play`)
+		: (info.textContent = `Please enter a number from 1 - 20`);
 	timer(false, 1700);
 };
 
@@ -122,7 +122,7 @@ const onSubmit = (event) => {
 		const convertedPlayerNumber = parseInt(form.playerNumber.value);
 		form.reset();
 
-		//What happens if player press check but entered no number or player's number is NaN
+		//What happens if player press check but entered no number
 		if (!convertedPlayerNumber) {
 			warning(true);
 			return;
