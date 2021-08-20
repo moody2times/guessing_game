@@ -112,6 +112,7 @@ const warning = (message = false) => {
 	timer(false, 1700);
 };
 
+//REVIEW: Use helper functions to implement DRY
 const onSubmit = (event) => {
 	event.preventDefault();
 
