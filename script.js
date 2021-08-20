@@ -155,6 +155,7 @@ const onSubmit = (event) => {
 			points.textContent = `${healthPoints}`;
 			if (healthPoints === 0) {
 				//what happens when health points becomes zero
+				display.textContent = `${secretNumber}`;
 				gameBoard.classList.add("gameBoard--lose");
 				info.textContent = `Game over!!! Continue?`;
 				headerEmoji.textContent = `😭`;
