@@ -130,46 +130,45 @@ const onSubmit = (event) => {
 		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 			warning();
 			return;
+		}
+
+		//what happens when player guessed right
+		if (secretNumber === convertedPlayerNumber) {
+			gameBoard.classList.add("gameBoard--win");
+			display.classList.add("win");
+			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
+			headerEmoji.textContent = `😁`;
+			display.textContent = `${secretNumber}`;
+			playerHiScore += healthPoints;
+			hiScore.textContent = playerHiScore;
+			pressStart.textContent = `Continue?`;
+			pressedStart = false;
+			didPlayerWin = true;
+			gameEnded = true;
+			gameStarted = false;
+			toggleButtonsState();
+			localStorage.setItem(storeScore, playerHiScore.toString());
 		} else {
-			//what happens when player guessed right
-			if (secretNumber === convertedPlayerNumber) {
-				gameBoard.classList.add("gameBoard--win");
-				display.classList.add("win");
-				info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
-				headerEmoji.textContent = `😁`;
-				display.textContent = `${secretNumber}`;
-				playerHiScore += healthPoints;
-				hiScore.textContent = playerHiScore;
-				pressStart.textContent = `Continue?`;
+			//what happens when player guessed wrong
+			healthPoints--;
+			points.textContent = `${healthPoints}`;
+			if (healthPoints === 0) {
+				//what happens when health points becomes zero
+				gameBoard.classList.add("gameBoard--lose");
+				info.textContent = `Game over!!! Continue?`;
+				headerEmoji.textContent = `😭`;
+				pressStart.textContent = `Play again?`;
 				pressedStart = false;
-				didPlayerWin = true;
+				didPlayerLose = true;
 				gameEnded = true;
 				gameStarted = false;
 				toggleButtonsState();
-				localStorage.setItem(storeScore, playerHiScore.toString());
-			} else {
-				//what happens when player guessed wrong
-				if (healthPoints) {
-					info.textContent = `Fail! Try again!!!`;
-					headerEmoji.textContent = `🤦‍`;
-					healthPoints--;
-					points.textContent = `${healthPoints}`;
-					if (healthPoints === 0) {
-						//what happens when health points becomes zero
-						gameBoard.classList.add("gameBoard--lose");
-						info.textContent = `Game over!!! Continue?`;
-						headerEmoji.textContent = `😭`;
-						pressStart.textContent = `Play again?`;
-						pressedStart = false;
-						didPlayerLose = true;
-						gameEnded = true;
-						gameStarted = false;
-						toggleButtonsState();
-						return;
-					}
-					timer(true, 500);
-				}
+				return;
 			}
+			info.textContent = `Fail! Try again!!!`;
+			headerEmoji.textContent = `🤦‍`;
+			timer(true, 500);
+			return;
 		}
 	}
 
