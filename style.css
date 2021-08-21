@@ -71,7 +71,7 @@ h3 {
 }
 
 .btn:hover {
-	background-color: #3a90f1;
+	background: linear-gradient(to right, #ff416c, #ff4b2b);
 }
 
 .btn:active {
