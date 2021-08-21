@@ -86,7 +86,7 @@ const onPressStart = () => {
 
 	if (didPlayerLose) {
 		didPlayerLose = false;
-		gameBoard.classList.remove("gameBoard--lose");
+		body.classList.remove("lose");
 	}
 };
 
@@ -158,7 +158,7 @@ const onSubmit = (event) => {
 			if (healthPoints === 0) {
 				//what happens when health points becomes zero
 				display.textContent = `${secretNumber}`;
-				gameBoard.classList.add("gameBoard--lose");
+				body.classList.add("lose");
 				info.textContent = `Game over!!! Continue?`;
 				headerEmoji.textContent = `😭`;
 				pressStart.textContent = `Play again?`;
