@@ -164,11 +164,7 @@ h3 {
 }
 
 /* win styles */
-.gameBoard--win {
-	background-color: #fff;
-}
-
-.gameBoard--lose {
+.lose {
 	background: linear-gradient(to right, #434343, #000000);
 }
 
