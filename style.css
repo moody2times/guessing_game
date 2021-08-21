@@ -11,7 +11,7 @@
 }
 
 body {
-	background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+	background: linear-gradient(to right, #1cb5e0, #000046);
 	color: ghostwhite;
 	font-family: "Poiret One", "Segoe UI", Tahoma, Geneva, sans-serif;
 	padding: 5rem 15rem;
@@ -66,7 +66,7 @@ h3 {
 }
 
 .btn:hover {
-	background: linear-gradient(to right, #304352, #d7d2cc);
+	background: linear-gradient(to right, #1cb5e0, #000046);
 }
 
 .btn:active {
@@ -86,12 +86,12 @@ h3 {
 }
 
 .white--btn {
-	background-color: #c7c7c7;
+	background: linear-gradient(to right, #9a8478, #1e130c);
 	width: 27rem;
 }
 
 .gameBoard {
-	background: linear-gradient(to right, #d7d2cc, #304352);
+	background: linear-gradient(to right, #9a8478, #1e130c);
 	border-radius: 1.2rem;
 	padding: 2rem 1.5rem;
 	margin: 3.5rem 0;
@@ -163,7 +163,7 @@ h3 {
 	padding: 0.4rem 1rem;
 }
 
-/* win styles */
+/* win or lose styles */
 .lose {
 	background: linear-gradient(to right, #434343, #000000);
 }
