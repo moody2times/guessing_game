@@ -11,13 +11,7 @@
 }
 
 body {
-	background: rgb(233, 36, 56);
-	background: linear-gradient(
-		319deg,
-		rgba(233, 36, 56, 1) 9%,
-		rgba(240, 5, 21, 1) 48%,
-		rgba(252, 176, 69, 1) 90%
-	);
+	background: linear-gradient(to right, #181818, #ba8b02);
 	color: ghostwhite;
 	font-family: "Poiret One", "Segoe UI", Tahoma, Geneva, sans-serif;
 	padding: 5rem 15rem;
@@ -60,10 +54,11 @@ h3 {
 }
 
 .btn {
-	background: linear-gradient(to right, #ff4b2b, #ff416c);
+	background: linear-gradient(to right, #d7d2cc, #304352);
 	border: none;
 	border-radius: 1.3rem;
 	box-shadow: 0 0.4rem 0.2rem rgba(51, 51, 51, 0.4);
+	color: ghostwhite;
 	display: inline-block;
 	font-size: 1.6rem;
 	padding: 1.5rem 3rem;
@@ -71,7 +66,7 @@ h3 {
 }
 
 .btn:hover {
-	background: linear-gradient(to right, #ff416c, #ff4b2b);
+	background: linear-gradient(to right, #304352, #d7d2cc);
 }
 
 .btn:active {
@@ -97,7 +92,6 @@ h3 {
 .gameBoard {
 	background: linear-gradient(to right, #434343, #000000);
 	border-radius: 1.2rem;
-	color: #333;
 	padding: 2rem 1.5rem;
 	margin: 3.5rem 0;
 }
@@ -105,7 +99,6 @@ h3 {
 .display {
 	border: 0.5rem solid #333;
 	border-radius: 0.7rem;
-	color: black;
 	font-size: 5rem;
 	font-weight: bolder;
 	height: 10rem;
@@ -116,7 +109,7 @@ h3 {
 }
 
 .info {
-	color: black;
+	color: ghostwhite;
 	font-size: 1.8rem;
 	font-weight: bolder;
 	height: 2rem;
