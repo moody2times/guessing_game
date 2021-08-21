@@ -60,7 +60,7 @@ h3 {
 }
 
 .btn {
-	background-color: #61aafd;
+	background: linear-gradient(to right, #ff4b2b, #ff416c);
 	border: none;
 	border-radius: 1.3rem;
 	box-shadow: 0 0.4rem 0.2rem rgba(51, 51, 51, 0.4);
