@@ -80,7 +80,7 @@ const onPressStart = () => {
 
 	if (didPlayerWin) {
 		didPlayerWin = false;
-		display.classList.remove("win");
+		body.classList.remove("win");
 		gameBoard.classList.remove("gameBoard--win");
 	}
 
@@ -138,7 +138,7 @@ const onSubmit = (event) => {
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			gameBoard.classList.add("gameBoard--win");
-			display.classList.add("win");
+			body.classList.add("win");
 			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
 			headerEmoji.textContent = `😁`;
 			display.textContent = `${secretNumber}`;
