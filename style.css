@@ -11,7 +11,7 @@
 }
 
 body {
-	background: linear-gradient(to right, #1f1c18, #8e0e00);
+	background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
 	color: ghostwhite;
 	font-family: "Poiret One", "Segoe UI", Tahoma, Geneva, sans-serif;
 	padding: 5rem 15rem;
@@ -75,7 +75,8 @@ h3 {
 }
 
 .btn:disabled {
-	background-color: #808080;
+	background: linear-gradient(to right, #ffffff, #abbaab);
+	color: #304352;
 	cursor: not-allowed;
 }
 
