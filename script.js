@@ -1,6 +1,7 @@
 "use strict";
 
 //DOM elements to interact with
+const body = document.body;
 const headerEmoji = document.getElementById("headerEmoji");
 const points = document.getElementById("points");
 const hiScore = document.getElementById("hiScore");
