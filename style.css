@@ -90,7 +90,7 @@ h3 {
 }
 
 .gameBoard {
-	background: linear-gradient(to right, #434343, #000000);
+	background: linear-gradient(to right, #d7d2cc, #304352);
 	border-radius: 1.2rem;
 	padding: 2rem 1.5rem;
 	margin: 3.5rem 0;
@@ -168,10 +168,10 @@ h3 {
 }
 
 .gameBoard--lose {
-	background-color: #808080;
+	background: linear-gradient(to right, #434343, #000000);
 }
 
 .win {
-	background-color: #3a90f1;
+	background: linear-gradient(to right, #0f9b0f, #000000);
 	color: antiquewhite;
 }
