@@ -38,13 +38,17 @@ const disableButtons = () => {
 	form.check.setAttribute("disabled", true);
 };
 
+const enableButtons = () => {
+	form.hintOne.removeAttribute("disabled");
+	form.hintTwo.removeAttribute("disabled");
+	form.playerNumber.removeAttribute("disabled");
+	form.check.removeAttribute("disabled");
+};
+
 //On page load or refresh state
 const setGameState = () => {
 	if (gameStarted) {
-		form.hintOne.removeAttribute("disabled");
-		form.hintTwo.removeAttribute("disabled");
-		form.playerNumber.removeAttribute("disabled");
-		form.check.removeAttribute("disabled");
+		enableButtons();
 		form.playerNumber.focus();
 		return;
 	}
