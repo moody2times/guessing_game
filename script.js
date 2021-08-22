@@ -38,6 +38,7 @@ const setGameState = () => {
 		form.hintTwo.removeAttribute("disabled");
 		form.playerNumber.removeAttribute("disabled");
 		form.check.removeAttribute("disabled");
+		form.playerNumber.focus();
 		return;
 	}
 
