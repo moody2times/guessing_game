@@ -31,6 +31,13 @@ const secret = () => {
 	return secretNumber;
 };
 
+const disableButtons = () => {
+	form.hintOne.setAttribute("disabled", true);
+	form.hintTwo.setAttribute("disabled", true);
+	form.playerNumber.setAttribute("disabled", true);
+	form.check.setAttribute("disabled", true);
+};
+
 //On page load or refresh state
 const setGameState = () => {
 	if (gameStarted) {
@@ -44,17 +51,11 @@ const setGameState = () => {
 
 	if (gameEnded) {
 		pressStart.removeAttribute("disabled");
-		form.hintOne.setAttribute("disabled", true);
-		form.hintTwo.setAttribute("disabled", true);
-		form.playerNumber.setAttribute("disabled", true);
-		form.check.setAttribute("disabled", true);
+		disableButtons();
 		return;
 	}
 
-	form.hintOne.setAttribute("disabled", true);
-	form.hintTwo.setAttribute("disabled", true);
-	form.playerNumber.setAttribute("disabled", true);
-	form.check.setAttribute("disabled", true);
+	disableButtons();
 	if (playerHiScore === 0 && localStorage.key(storeScore)) {
 		playerHiScore = +localStorage.getItem(storeScore);
 		hiScore.textContent = playerHiScore;
