@@ -182,6 +182,7 @@ const onSubmit = (event) => {
 		}
 	}
 
+	//REVIEW: Refactor to keep DRY
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
 		//what happens if player use hint one
