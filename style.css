@@ -148,7 +148,7 @@ h3 {
 }
 
 .form__input:focus {
-	background-color: #333;
+	background-color: #304352;
 	color: ghostwhite;
 	outline: none;
 }
