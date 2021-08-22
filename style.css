@@ -86,12 +86,12 @@ h3 {
 }
 
 .white--btn {
-	background: linear-gradient(to right, #9a8478, #1e130c);
+	background: linear-gradient(to right, #d7d2cc, #304352);
 	width: 27rem;
 }
 
 .gameBoard {
-	background: linear-gradient(to right, #9a8478, #1e130c);
+	background: linear-gradient(to right, #d7d2cc, #304352);
 	border-radius: 1.2rem;
 	padding: 2rem 1.5rem;
 	margin: 3.5rem 0;
