@@ -116,9 +116,9 @@ const onPlayerGuess = (right = false) => {
 	pressedStart = false;
 	gameEnded = true;
 	gameStarted = false;
-	setGameState();
 	display.textContent = `${secretNumber}`;
 	pressStart.textContent = `Play again?`;
+	setGameState();
 };
 
 // function to prevent using a hint twice
