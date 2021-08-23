@@ -60,7 +60,7 @@ const setGameState = () => {
 	}
 
 	disableButtons();
-	if (playerHiScore === 0 && localStorage.key(storeScore)) {
+	if (localStorage.key(storeScore)) {
 		playerHiScore = +localStorage.getItem(storeScore);
 		hiScore.textContent = playerHiScore;
 	}
