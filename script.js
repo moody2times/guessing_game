@@ -181,6 +181,7 @@ const onSubmit = (event) => {
 		}
 	}
 
+	//BUG: When player use hint and points go below zero, the game does not end
 	//REVIEW: Refactor to keep DRY
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
