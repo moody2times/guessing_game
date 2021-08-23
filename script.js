@@ -104,6 +104,23 @@ const timer = (emoji = false, milSec) => {
 	}, milSec);
 };
 
+//what happens when player guesses
+const onPlayerGuess = (right = false) => {
+	right
+		? ((headerEmoji.textContent = `😁`),
+		  (info.textContent = `Hooray!!! 🥳🎆 You guessed the number`),
+		  body.classList.add("win"))
+		: ((headerEmoji.textContent = `😭`),
+		  (info.textContent = `You lose!!!`),
+		  body.classList.add("lose"));
+	pressedStart = false;
+	gameEnded = true;
+	gameStarted = false;
+	setGameState();
+	display.textContent = `${secretNumber}`;
+	pressStart.textContent = `Play again?`;
+};
+
 // function to prevent using a hint twice
 const hintUsed = () => {
 	timer && clearTimeout(timer);
@@ -142,19 +159,10 @@ const onSubmit = (event) => {
 
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
-			gameBoard.classList.add("gameBoard--win");
-			body.classList.add("win");
-			info.textContent = `Hooray!!! 🥳🎆 You guessed the number`;
-			headerEmoji.textContent = `😁`;
-			display.textContent = `${secretNumber}`;
 			playerHiScore += healthPoints;
 			hiScore.textContent = playerHiScore;
-			pressStart.textContent = `Continue?`;
-			pressedStart = false;
 			didPlayerWin = true;
-			gameEnded = true;
-			gameStarted = false;
-			setGameState();
+			onPlayerGuess(true);
 			localStorage.setItem(storeScore, playerHiScore.toString());
 		} else {
 			//what happens when player guessed wrong
@@ -162,16 +170,8 @@ const onSubmit = (event) => {
 			points.textContent = `${healthPoints}`;
 			if (healthPoints === 0) {
 				//what happens when health points becomes zero
-				display.textContent = `${secretNumber}`;
-				body.classList.add("lose");
-				info.textContent = `Game over!!! Continue?`;
-				headerEmoji.textContent = `😭`;
-				pressStart.textContent = `Play again?`;
-				pressedStart = false;
 				didPlayerLose = true;
-				gameEnded = true;
-				gameStarted = false;
-				setGameState();
+				onPlayerGuess();
 				return;
 			}
 			info.textContent = `Fail! Try again!!!`;
