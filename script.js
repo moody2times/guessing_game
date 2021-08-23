@@ -102,7 +102,6 @@ const timer = (emoji = false, milSec) => {
 		info.textContent = "\xa0";
 		emoji && (headerEmoji.textContent = `🤔`);
 	}, milSec);
-	return timer;
 };
 
 // function to prevent using a hint twice
