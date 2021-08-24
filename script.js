@@ -157,7 +157,6 @@ const warning = (message = false) => {
 	renewTimeOut(LONG_TIME);
 };
 
-//REVIEW: Use helper functions to implement DRY
 const onSubmit = (event) => {
 	event.preventDefault();
 
@@ -203,7 +202,6 @@ const onSubmit = (event) => {
 	}
 
 	//BUG: When player use hint and points go below zero, the game does not end
-	//REVIEW: Refactor to keep DRY
 	//what happens when player press use hint buttons
 	if (event.submitter.id === "hintOne") {
 		//what happens if player use hint one
