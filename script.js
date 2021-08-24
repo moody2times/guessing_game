@@ -180,15 +180,15 @@ const onSubmit = (event) => {
 		form.reset();
 		form.playerNumber.focus();
 
-		//What happens if player press check but entered no number
-		if (!convertedPlayerNumber) {
-			warning(true);
-			return;
-		}
-
 		//Validation for user entry
 		if (convertedPlayerNumber < 1 || convertedPlayerNumber > 20) {
 			warning();
+			return;
+		}
+
+		//What happens if player press check but entered no number
+		if (!convertedPlayerNumber) {
+			warning(true);
 			return;
 		}
 
