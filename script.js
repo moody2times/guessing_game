@@ -34,6 +34,7 @@ const secret = () => {
 	return secretNumber;
 };
 
+//function to disable buttons
 const disableButtons = () => {
 	form.hintOne.setAttribute("disabled", true);
 	form.hintTwo.setAttribute("disabled", true);
@@ -41,6 +42,7 @@ const disableButtons = () => {
 	form.check.setAttribute("disabled", true);
 };
 
+//function to enable buttons
 const enableButtons = () => {
 	form.hintOne.removeAttribute("disabled");
 	form.hintTwo.removeAttribute("disabled");
@@ -160,6 +162,7 @@ const hintUsed = () => {
 	setTextContent(info, `Forbidden!!! 🚫`);
 };
 
+//function to warn against wrong input
 const warning = (message = false) => {
 	message
 		? setTextContent(info, `Please enter a number to play`)
@@ -245,6 +248,7 @@ const onSubmit = (event) => {
 	}
 };
 
+//function to control enter keypress
 const onKeyPressHandler = (event) => {
 	const { key, keyCode } = event;
 	if (key === "Enter" && keyCode === 13) {
