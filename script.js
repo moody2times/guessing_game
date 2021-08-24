@@ -76,6 +76,8 @@ const setTextContent = (element, string) => {
 	element === pressStart && (pressStart.textContent = string);
 	element === points && (points.textContent = string);
 	element === hiScore && (hiScore.textContent = string);
+	element === display && (display.textContent = string);
+	element === headerEmoji && (headerEmoji.textContent = string);
 };
 
 //What happens when start button is pressed
@@ -89,10 +91,10 @@ const onPressStart = () => {
 		healthPoints = 7;
 		pressedHintOne = false;
 		pressedHintTwo = false;
-		points.textContent = `${healthPoints}`;
-		display.textContent = `?`;
-		info.textContent = "\xa0";
-		headerEmoji.textContent = `🤔`;
+		setTextContent(points, `${healthPoints}`);
+		setTextContent(display, `?`);
+		setTextContent(info, `\xa0`);
+		setTextContent(headerEmoji, `🤔`);
 	}
 
 	didPlayerWin
@@ -103,8 +105,8 @@ const onPressStart = () => {
 //timer function
 const timer = (emoji = false, milSec) => {
 	timerId = setTimeout(() => {
-		info.textContent = "\xa0";
-		emoji && (headerEmoji.textContent = `🤔`);
+		setTextContent(info, `\xa0`);
+		emoji && setTextContent(headerEmoji, `🤔`);
 	}, milSec);
 };
 
@@ -112,16 +114,16 @@ const timer = (emoji = false, milSec) => {
 const onPlayerGuess = (right = false) => {
 	right
 		? ((headerEmoji.textContent = `😁`),
-		  setTextContent(`Hooray!!! 🥳🎆 You guessed the number`),
+		  setTextContent(info, `Hooray!!! 🥳🎆 You guessed the number`),
 		  body.classList.add("win"))
 		: ((headerEmoji.textContent = `😭`),
-		  setTextContent(`You lose!!!`),
+		  setTextContent(info, `You lose!!!`),
 		  body.classList.add("lose"));
 	pressedStart = false;
 	gameEnded = true;
 	gameStarted = false;
-	display.textContent = `${secretNumber}`;
-	pressStart.textContent = `Play again?`;
+	setTextContent(display, `${secretNumber}`);
+	setTextContent(pressStart, `Play again?`);
 	setGameState();
 };
 
@@ -136,32 +138,32 @@ const onUseHint = (type) => {
 	renewTimeOut(LONG_TIME);
 
 	type === 1
-		? (healthPoints--, (points.textContent = `${healthPoints}`))
-		: ((healthPoints -= 2), (points.textContent = `${healthPoints}`));
+		? (healthPoints--, setTextContent(points, `${healthPoints}`))
+		: ((healthPoints -= 2), setTextContent(points, `${healthPoints}`));
 
 	if (type === 1) {
 		pressedHintOne = true;
 		secretNumber % 2 === 0
-			? (info.textContent = `It is an even number 2️⃣`)
-			: (info.textContent = `It is an odd number 1️⃣`);
+			? setTextContent(info, `It is an even number 2️⃣`)
+			: setTextContent(info, `It is an odd number 1️⃣`);
 	} else {
 		pressedHintTwo = true;
 		secretNumber >= 10
-			? (info.textContent = `It is double digits 🔟`)
-			: (info.textContent = `It is single digit 0️⃣`);
+			? setTextContent(info, `It is an double digits 🔟`)
+			: setTextContent(info, `It is a single digit 0️⃣`);
 	}
 };
 
 // function to prevent using a hint twice
 const hintUsed = () => {
 	renewTimeOut(SHORT_TIME);
-	info.textContent = `Forbidden!!! 🚫`;
+	setTextContent(info, `Forbidden!!! 🚫`);
 };
 
 const warning = (message = false) => {
 	message
-		? (info.textContent = `Please enter a number to play`)
-		: (info.textContent = `Please enter a number from 1 - 20`);
+		? setTextContent(info, `Please enter a number to play`)
+		: setTextContent(info, `Please enter a number from 1 - 20`);
 	renewTimeOut(LONG_TIME);
 };
 
@@ -189,21 +191,21 @@ const onSubmit = (event) => {
 		//what happens when player guessed right
 		if (secretNumber === convertedPlayerNumber) {
 			playerHiScore += healthPoints;
-			hiScore.textContent = playerHiScore;
+			setTextContent(hiScore, playerHiScore);
 			didPlayerWin = true;
 			onPlayerGuess(true);
 			localStorage.setItem(storeScore, playerHiScore.toString());
 		} else {
 			//what happens when player guessed wrong
 			healthPoints--;
-			points.textContent = `${healthPoints}`;
+			setTextContent(points, `${healthPoints}`);
 			if (healthPoints === 0) {
 				//what happens when health points becomes zero
 				onPlayerGuess();
 				return;
 			}
-			info.textContent = `Fail! Try again!!!`;
-			headerEmoji.textContent = `🤦‍`;
+			setTextContent(info, `Fail! Try again!!!`);
+			setTextContent(headerEmoji, `🤦‍`);
 			renewTimeOut(SHORT_TIME);
 			return;
 		}
@@ -236,7 +238,7 @@ const onSubmit = (event) => {
 	//What happens when player press reset button
 	if (event.submitter.id === "resetBtn") {
 		healthPoints = 7;
-		points.textContent = healthPoints;
+		setTextContent(points, healthPoints);
 		gameStarted = false;
 		gameEnded = true;
 		setGameState();
