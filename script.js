@@ -114,10 +114,15 @@ const onPlayerGuess = (right = false) => {
 	setGameState();
 };
 
+//a function to clear old timeOut and set new one
+const renewTimeOut = (seconds) => {
+	timerId && clearTimeout(timerId);
+	timer(false, seconds);
+};
+
 //what happens when player press any use hint buttons
 const onUseHint = (type) => {
-	timer && clearTimeout(timer);
-	timer(false, 1700);
+	renewTimeOut(1700);
 
 	if (type === 1) {
 		pressedHintOne = true;
@@ -138,8 +143,7 @@ const onUseHint = (type) => {
 
 // function to prevent using a hint twice
 const hintUsed = () => {
-	timer && clearTimeout(timer);
-	timer(false, 500);
+	renewTimeOut(500);
 	info.textContent = `Forbidden!!! 🚫`;
 };
 
