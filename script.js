@@ -18,7 +18,6 @@ let healthPoints,
 	pressedHintTwo,
 	secretNumber,
 	didPlayerWin,
-	didPlayerLose,
 	gameStarted,
 	gameEnded;
 let playerHiScore = 0;
@@ -84,16 +83,9 @@ const onPressStart = () => {
 		headerEmoji.textContent = `🤔`;
 	}
 
-	if (didPlayerWin) {
-		didPlayerWin = false;
-		body.classList.remove("win");
-		gameBoard.classList.remove("gameBoard--win");
-	}
-
-	if (didPlayerLose) {
-		didPlayerLose = false;
-		body.classList.remove("lose");
-	}
+	didPlayerWin
+		? ((didPlayerWin = false), body.classList.remove("win"))
+		: body.classList.remove("lose");
 };
 
 //timer function
@@ -170,7 +162,6 @@ const onSubmit = (event) => {
 			points.textContent = `${healthPoints}`;
 			if (healthPoints === 0) {
 				//what happens when health points becomes zero
-				didPlayerLose = true;
 				onPlayerGuess();
 				return;
 			}
