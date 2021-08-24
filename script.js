@@ -137,7 +137,7 @@ const renewTimeOut = (state = false, seconds) => {
 
 //what happens when player press any use hint buttons
 const onUseHint = (type) => {
-	renewTimeOut(LONG_TIME);
+	renewTimeOut(false, LONG_TIME);
 
 	type === 1
 		? (healthPoints--, setTextContent(points, `${healthPoints}`))
@@ -158,7 +158,7 @@ const onUseHint = (type) => {
 
 // function to prevent using a hint twice
 const hintUsed = () => {
-	renewTimeOut(SHORT_TIME);
+	renewTimeOut(false, SHORT_TIME);
 	setTextContent(info, `Forbidden!!! 🚫`);
 };
 
@@ -167,7 +167,7 @@ const warning = (message = false) => {
 	message
 		? setTextContent(info, `Please enter a number to play`)
 		: setTextContent(info, `Please enter a number from 1 - 20`);
-	renewTimeOut(LONG_TIME);
+	renewTimeOut(false, LONG_TIME);
 };
 
 const onSubmit = (event) => {
