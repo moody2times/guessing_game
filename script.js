@@ -19,7 +19,8 @@ let healthPoints,
 	secretNumber,
 	didPlayerWin,
 	gameStarted,
-	gameEnded;
+	gameEnded,
+	timerId;
 let playerHiScore = 0;
 let storeScore = "playerHiScore";
 
@@ -92,6 +93,7 @@ const onPressStart = () => {
 const timer = (emoji = false, milSec) => {
 	setTimeout(() => {
 		info.textContent = "\xa0";
+		console.log("timer");
 		emoji && (headerEmoji.textContent = `🤔`);
 	}, milSec);
 };
@@ -115,12 +117,13 @@ const onPlayerGuess = (right = false) => {
 
 //what happens when player press any use hint buttons
 const onUseHint = (type) => {
+	timer && clearTimeout(timer);
+	timer(false, 1700);
+
 	if (type === 1) {
 		pressedHintOne = true;
 		healthPoints--;
 		points.textContent = `${healthPoints}`;
-		timer && clearTimeout(timer);
-		timer(false, 1700);
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number 2️⃣`)
 			: (info.textContent = `It is an odd number 1️⃣`);
@@ -128,8 +131,6 @@ const onUseHint = (type) => {
 		pressedHintTwo = true;
 		healthPoints -= 2;
 		points.textContent = `${healthPoints}`;
-		timer && clearTimeout(timer);
-		timer(false, 1700);
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
 			: (info.textContent = `It is single digit 0️⃣`);
