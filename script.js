@@ -127,17 +127,17 @@ const renewTimeOut = (seconds) => {
 const onUseHint = (type) => {
 	renewTimeOut(LONG_TIME);
 
+	type === 1
+		? (healthPoints--, (points.textContent = `${healthPoints}`))
+		: ((healthPoints -= 2), (points.textContent = `${healthPoints}`));
+
 	if (type === 1) {
 		pressedHintOne = true;
-		healthPoints--;
-		points.textContent = `${healthPoints}`;
 		secretNumber % 2 === 0
 			? (info.textContent = `It is an even number 2️⃣`)
 			: (info.textContent = `It is an odd number 1️⃣`);
 	} else {
 		pressedHintTwo = true;
-		healthPoints -= 2;
-		points.textContent = `${healthPoints}`;
 		secretNumber >= 10
 			? (info.textContent = `It is double digits 🔟`)
 			: (info.textContent = `It is single digit 0️⃣`);
