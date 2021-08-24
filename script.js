@@ -21,6 +21,9 @@ let healthPoints,
 	gameStarted,
 	gameEnded,
 	timerId;
+
+let LONG_TIME = 1700;
+let SHORT_TIME = 500;
 let playerHiScore = 0;
 let storeScore = "playerHiScore";
 
@@ -122,7 +125,7 @@ const renewTimeOut = (seconds) => {
 
 //what happens when player press any use hint buttons
 const onUseHint = (type) => {
-	renewTimeOut(1700);
+	renewTimeOut(LONG_TIME);
 
 	if (type === 1) {
 		pressedHintOne = true;
@@ -143,7 +146,7 @@ const onUseHint = (type) => {
 
 // function to prevent using a hint twice
 const hintUsed = () => {
-	renewTimeOut(500);
+	renewTimeOut(SHORT_TIME);
 	info.textContent = `Forbidden!!! 🚫`;
 };
 
@@ -151,7 +154,7 @@ const warning = (message = false) => {
 	message
 		? (info.textContent = `Please enter a number to play`)
 		: (info.textContent = `Please enter a number from 1 - 20`);
-	timer(false, 1700);
+	renewTimeOut(LONG_TIME);
 };
 
 //REVIEW: Use helper functions to implement DRY
@@ -194,7 +197,7 @@ const onSubmit = (event) => {
 			}
 			info.textContent = `Fail! Try again!!!`;
 			headerEmoji.textContent = `🤦‍`;
-			timer(true, 500);
+			renewTimeOut(SHORT_TIME);
 			return;
 		}
 	}
