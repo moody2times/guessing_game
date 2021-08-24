@@ -113,6 +113,29 @@ const onPlayerGuess = (right = false) => {
 	setGameState();
 };
 
+//what happens when player press any use hint buttons
+const onUseHint = (type) => {
+	if (type === 1) {
+		pressedHintOne = true;
+		healthPoints--;
+		points.textContent = `${healthPoints}`;
+		timer && clearTimeout(timer);
+		timer(false, 1700);
+		secretNumber % 2 === 0
+			? (info.textContent = `It is an even number 2️⃣`)
+			: (info.textContent = `It is an odd number 1️⃣`);
+	} else {
+		pressedHintTwo = true;
+		healthPoints -= 2;
+		points.textContent = `${healthPoints}`;
+		timer && clearTimeout(timer);
+		timer(false, 1700);
+		secretNumber >= 10
+			? (info.textContent = `It is double digits 🔟`)
+			: (info.textContent = `It is single digit 0️⃣`);
+	}
+};
+
 // function to prevent using a hint twice
 const hintUsed = () => {
 	timer && clearTimeout(timer);
@@ -182,14 +205,7 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		pressedHintOne = true;
-		healthPoints--;
-		points.textContent = `${healthPoints}`;
-		timer && clearTimeout(timer);
-		timer(false, 1700);
-		secretNumber % 2 === 0
-			? (info.textContent = `It is an even number 2️⃣`)
-			: (info.textContent = `It is an odd number 1️⃣`);
+		onUseHint(1);
 		return;
 	}
 
@@ -200,14 +216,7 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		pressedHintTwo = true;
-		healthPoints -= 2;
-		points.textContent = `${healthPoints}`;
-		timer && clearTimeout(timer);
-		timer(false, 1700);
-		secretNumber >= 10
-			? (info.textContent = `It is double digits 🔟`)
-			: (info.textContent = `It is single digit 0️⃣`);
+		onUseHint(2);
 		return;
 	}
 
