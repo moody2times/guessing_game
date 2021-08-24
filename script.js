@@ -105,7 +105,7 @@ const onPressStart = () => {
 };
 
 //timer function
-const timer = (emoji = false, milSec) => {
+const timer = (emoji, milSec) => {
 	timerId = setTimeout(() => {
 		setTextContent(info, `\xa0`);
 		emoji && setTextContent(headerEmoji, `🤔`);
@@ -130,9 +130,9 @@ const onPlayerGuess = (right = false) => {
 };
 
 //a function to clear old timeOut and set new one
-const renewTimeOut = (seconds) => {
+const renewTimeOut = (state = false, seconds) => {
 	timerId && clearTimeout(timerId);
-	timer(false, seconds);
+	timer(state, seconds);
 };
 
 //what happens when player press any use hint buttons
@@ -215,7 +215,7 @@ const onSubmit = (event) => {
 					: `Wrong, that is too low!`
 			);
 			setTextContent(headerEmoji, `🤦‍`);
-			renewTimeOut(SHORT_TIME);
+			renewTimeOut(true, SHORT_TIME);
 			return;
 		}
 	}
