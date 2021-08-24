@@ -91,9 +91,8 @@ const onPressStart = () => {
 
 //timer function
 const timer = (emoji = false, milSec) => {
-	setTimeout(() => {
+	timerId = setTimeout(() => {
 		info.textContent = "\xa0";
-		console.log("timer");
 		emoji && (headerEmoji.textContent = `🤔`);
 	}, milSec);
 };
