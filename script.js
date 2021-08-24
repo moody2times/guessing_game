@@ -178,6 +178,7 @@ const onSubmit = (event) => {
 		//convert user number to a Number and reset the form
 		const convertedPlayerNumber = parseInt(form.playerNumber.value);
 		form.reset();
+		form.playerNumber.focus();
 
 		//What happens if player press check but entered no number
 		if (!convertedPlayerNumber) {
