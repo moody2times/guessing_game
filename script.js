@@ -23,7 +23,7 @@ let healthPoints,
 	timerId;
 
 let LONG_TIME = 1700;
-let SHORT_TIME = 500;
+let SHORT_TIME = 850;
 let playerHiScore = 0;
 let storeScore = "playerHiScore";
 
@@ -207,7 +207,12 @@ const onSubmit = (event) => {
 				onPlayerGuess();
 				return;
 			}
-			setTextContent(info, `Fail! Try again!!!`);
+			setTextContent(
+				info,
+				secretNumber < convertedPlayerNumber
+					? `Wrong, that is too high!`
+					: `Wrong, that is too low!`
+			);
 			setTextContent(headerEmoji, `🤦‍`);
 			renewTimeOut(SHORT_TIME);
 			return;
