@@ -135,7 +135,7 @@ h3 {
 }
 
 .form__input {
-	background-color: #e6e4e4;
+	background-color: #304352;
 	border: none;
 	border-radius: 1.1rem;
 	display: inline-block;
@@ -148,8 +148,8 @@ h3 {
 }
 
 .form__input:focus {
-	background-color: #304352;
-	color: ghostwhite;
+	background-color: #f8f8ff;
+	color: #304352;
 	outline: none;
 }
 
