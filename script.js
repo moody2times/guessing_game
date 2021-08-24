@@ -70,6 +70,14 @@ const setGameState = () => {
 };
 setGameState();
 
+//a function to help set info.textContent
+const setTextContent = (element, string) => {
+	element === info && (info.textContent = string);
+	element === pressStart && (pressStart.textContent = string);
+	element === points && (points.textContent = string);
+	element === hiScore && (hiScore.textContent = string);
+};
+
 //What happens when start button is pressed
 const onPressStart = () => {
 	pressedStart = true;
@@ -104,10 +112,10 @@ const timer = (emoji = false, milSec) => {
 const onPlayerGuess = (right = false) => {
 	right
 		? ((headerEmoji.textContent = `😁`),
-		  (info.textContent = `Hooray!!! 🥳🎆 You guessed the number`),
+		  setTextContent(`Hooray!!! 🥳🎆 You guessed the number`),
 		  body.classList.add("win"))
 		: ((headerEmoji.textContent = `😭`),
-		  (info.textContent = `You lose!!!`),
+		  setTextContent(`You lose!!!`),
 		  body.classList.add("lose"));
 	pressedStart = false;
 	gameEnded = true;
