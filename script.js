@@ -229,7 +229,10 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		onUseHint(1);
+		healthPoints === 1
+			? (setTextContent(info, `Health points too low! 🛑`),
+			  renewTimeOut(false, LONG_TIME))
+			: onUseHint(1);
 		return;
 	}
 
@@ -240,7 +243,10 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		onUseHint(2);
+		healthPoints === 2
+			? (setTextContent(info, `Health points too low! 🛑`),
+			  renewTimeOut(false, LONG_TIME))
+			: onUseHint(2);
 		return;
 	}
 
