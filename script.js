@@ -162,6 +162,13 @@ const hintUsed = () => {
 	setTextContent(info, `Forbidden!!! 🚫`);
 };
 
+const canUseHint = (type) => {
+	healthPoints <= type
+		? (setTextContent(info, `Health points too low! 🛑`),
+		  renewTimeOut(false, LONG_TIME))
+		: onUseHint(type);
+};
+
 //function to warn against wrong input
 const warning = (message = false) => {
 	message
@@ -228,10 +235,7 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		healthPoints === 1
-			? (setTextContent(info, `Health points too low! 🛑`),
-			  renewTimeOut(false, LONG_TIME))
-			: onUseHint(1);
+		canUseHint(1);
 		return;
 	}
 
@@ -242,10 +246,7 @@ const onSubmit = (event) => {
 			hintUsed();
 			return;
 		}
-		healthPoints === 2
-			? (setTextContent(info, `Health points too low! 🛑`),
-			  renewTimeOut(false, LONG_TIME))
-			: onUseHint(2);
+		canUseHint(2);
 		return;
 	}
 
